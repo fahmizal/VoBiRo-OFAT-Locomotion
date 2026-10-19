@@ -1,0 +1,147 @@
+%% MATLAB Script: Analisis Pengujian Period Time Robot Bipedal VoBiRo
+% Dibuat khusus untuk visualisasi grafik standar publikasi paper/jurnal ilmiah.
+% Latar belakang diset PUTIH BERSIH untuk kemudahan ekspor ke LaTeX/Word.
+clear; clc; close all;
+
+%% 1. BERSIHKAN & ATUR CONFIG-FONT & WARNA LATAR JURNAL
+set(0, 'DefaultAxesFontName', 'Times New Roman');
+set(0, 'DefaultTextFontName', 'Times New Roman');
+set(0, 'DefaultFigureColor', 'w'); % Mengubah default background figure menjadi PUTIH
+
+%% 2. IMPORT DATA CSV
+fprintf('Membaca data pengujian...\n');
+try
+    data1000 = readtable('data_1000.csv');
+    data800  = readtable('data_800.csv');
+    data600  = readtable('data_600.csv');
+    data400  = readtable('data_400.csv');
+    fprintf('Semua data berhasil dimuat!\n\n');
+catch ME
+    error('Gagal membaca file CSV. Pastikan nama file sesuai dan berada di folder yang sama.');
+end
+
+%% 3. PRE-PROCESSING (Normalisasi Waktu ke Detik dimulai dari 0)
+t1000 = (data1000.Timestamp_ms - data1000.Timestamp_ms(1)) / 1000;
+t800  = (data800.Timestamp_ms - data800.Timestamp_ms(1)) / 1000;
+t600  = (data600.Timestamp_ms - data600.Timestamp_ms(1)) / 1000;
+t400  = (data400.Timestamp_ms - data400.Timestamp_ms(1)) / 1000;
+
+% Palet warna profesional untuk paper ilmiah (sangat kontras di background putih)
+colors = [0.00, 0.45, 0.74;  % Biru (1000 ms)
+          0.85, 0.33, 0.10;  % Jingga (800 ms)
+          0.93, 0.69, 0.13;  % Kuning (600 ms)
+          0.49, 0.18, 0.56]; % Ungu (400 ms)
+
+%% ========================================================================
+%% GRAFIK 1: PROFIL KECEPATAN SEPANJANG WAKTU (SPEED PROFILE)
+%% ========================================================================
+figure('Name', 'Profil Kecepatan', 'Position', [100, 100, 750, 450], 'Color', 'w');
+hold on;
+plot(t1000, data1000.Speed_m_s, 'LineWidth', 2, 'Color', colors(1,:));
+plot(t800,  data800.Speed_m_s,  'LineWidth', 2, 'Color', colors(2,:));
+plot(t600,  data600.Speed_m_s,  'LineWidth', 2, 'Color', colors(3,:));
+plot(t400,  data400.Speed_m_s,  'LineWidth', 2, 'Color', colors(4,:));
+
+% Otomatis mendeteksi titik jatuh ('FALL DETECTED!') pertama kali
+idx_fall_1000 = find(strcmp(data1000.Fall_Status, 'FALL DETECTED!'), 1);
+if ~isempty(idx_fall_1000)
+    plot(t1000(idx_fall_1000), data1000.Speed_m_s(idx_fall_1000), 'ro', 'MarkerSize', 10, 'LineWidth', 2, 'HandleVisibility', 'off');
+    text(t1000(idx_fall_1000)+0.1, data1000.Speed_m_s(idx_fall_1000)+0.015, '\leftarrow Jatuh (1000ms)', 'Color', 'r', 'FontWeight', 'bold');
+end
+
+idx_fall_400 = find(strcmp(data400.Fall_Status, 'FALL DETECTED!'), 1);
+if ~isempty(idx_fall_400)
+    plot(t400(idx_fall_400), data400.Speed_m_s(idx_fall_400), 'ro', 'MarkerSize', 10, 'LineWidth', 2, 'HandleVisibility', 'off');
+    text(t400(idx_fall_400)-1.2, data400.Speed_m_s(idx_fall_400)-0.02, 'Jatuh (400ms) \rightarrow', 'Color', 'r', 'FontWeight', 'bold');
+end
+
+grid on; box on;
+set(gca, 'Color', 'w'); % Memastikan sumbu dalam (axes) berwarna putih bersih
+% Cari baris ini di Grafik 1, 2, atau 3 Anda, lalu tambahkan properti warna di ujungnya:
+xlabel('Waktu (detik)', 'FontSize', 12, 'Color', 'k'); 
+ylabel('Kecepatan Berjalan (m/s)', 'FontSize', 12, 'Color', 'k');
+title('Profil Kecepatan Robot Terhadap Variasi Period Time', 'FontSize', 13, 'FontWeight', 'bold', 'Color', 'k');
+title('Profil Kecepatan Robot Terhadap Variasi Period Time', 'FontSize', 13, 'FontWeight', 'bold');
+legend({'Period 1000 ms', 'Period 800 ms', 'Period 600 ms', 'Period 400 ms'}, 'FontSize', 10, 'Location', 'best');
+
+%% ========================================================================
+%% GRAFIK 2: RINGKASAN PERFORMANCE (BAR CHART UNTUK PAPER)
+%% ========================================================================
+periods_label = categorical({'1000 ms', '800 ms', '600 ms', '400 ms'});
+periods_label = reordercats(periods_label, {'1000 ms', '800 ms', '600 ms', '400 ms'});
+max_speeds = [max(data1000.Speed_m_s), max(data800.Speed_m_s), max(data600.Speed_m_s), max(data400.Speed_m_s)];
+
+figure('Name', 'Ringkasan Kecepatan', 'Position', [150, 150, 600, 450], 'Color', 'w');
+b = bar(periods_label, max_speeds, 'FaceColor', 'flat');
+b.CData = colors; % Mengaplikasikan warna kontras
+
+grid on; box on;
+set(gca, 'Color', 'w');
+xlabel('Period Time (ms)', 'FontSize', 12);
+ylabel('Kecepatan Maksimum (m/s)', 'FontSize', 12);
+title('Perbandingan Kecepatan Maksimum & Kestabilan Gait', 'FontSize', 13, 'FontWeight', 'bold');
+
+% Menambahkan label status di atas bar chart (terbaca sangat tajam di atas warna putih)
+text(1, max_speeds(1)+0.01, 'Jatuh (Terlalu Lambat)', 'HorizontalAlignment', 'center', 'Color', 'r', 'FontSize', 9, 'FontWeight', 'bold');
+text(2, max_speeds(2)+0.01, 'Stabil (Normal)', 'HorizontalAlignment', 'center', 'Color', [0 0.5 0], 'FontSize', 9, 'FontWeight', 'bold');
+text(3, max_speeds(3)+0.01, 'Stabil (Normal)', 'HorizontalAlignment', 'center', 'Color', [0 0.5 0], 'FontSize', 9, 'FontWeight', 'bold');
+text(4, max_speeds(4)+0.01, 'Jatuh (Terlalu Cepat)', 'HorizontalAlignment', 'center', 'Color', 'r', 'FontSize', 9, 'FontWeight', 'bold');
+ylim([0, max(max_speeds)*1.2]);
+
+%% ========================================================================
+%% GRAFIK 3: ANALISIS FLUKTUASI BODY STABILITY (CoM ROLL & PITCH)
+%% ========================================================================
+figure('Name', 'Osilasi CoM', 'Position', [200, 200, 800, 600], 'Color', 'w');
+
+subplot(2,1,1);
+hold on;
+plot(t1000, data1000.CoM_Y_Roll, 'LineWidth', 1.2, 'Color', colors(1,:));
+plot(t800,  data800.CoM_Y_Roll,  'LineWidth', 1.2, 'Color', colors(2,:));
+plot(t600,  data600.CoM_Y_Roll,  'LineWidth', 1.2, 'Color', colors(3,:));
+plot(t400,  data400.CoM_Y_Roll,  'LineWidth', 1.2, 'Color', colors(4,:));
+grid on; box on; set(gca, 'Color', 'w');
+ylabel('CoM Roll (rad)', 'FontSize', 11);
+title('Analisis Osilasi Center of Mass (CoM) terhadap Stabilitas Tubuh', 'FontSize', 13, 'FontWeight', 'bold');
+legend({'1000 ms', '800 ms', '600 ms', '400 ms'}, 'Location', 'northeast');
+
+subplot(2,1,2);
+hold on;
+plot(t1000, data1000.CoM_Z_Pitch, 'LineWidth', 1.2, 'Color', colors(1,:));
+plot(t800,  data800.CoM_Z_Pitch,  'LineWidth', 1.2, 'Color', colors(2,:));
+plot(t600,  data600.CoM_Z_Pitch,  'LineWidth', 1.2, 'Color', colors(3,:));
+plot(t400,  data400.CoM_Z_Pitch,  'LineWidth', 1.2, 'Color', colors(4,:));
+grid on; box on; set(gca, 'Color', 'w');
+xlabel('Waktu (detik)', 'FontSize', 11);
+ylabel('CoM Pitch (rad)', 'FontSize', 11);
+
+%% ========================================================================
+%% GRAFIK 4: PERBANDINGAN LINTASAN KAKI (FOOT TRAJECTORY CYCLES)
+%% ========================================================================
+figure('Name', 'Lintasan Gerak Kaki', 'Position', [250, 250, 850, 600], 'Color', 'w');
+
+% Periode 1000 ms
+subplot(2,2,1);
+plot(t1000, data1000.Foot_Trajectory_Z_Left, 'b-', 'LineWidth', 1.2); hold on;
+plot(t1000, data1000.Foot_Trajectory_Z_Right, 'r--', 'LineWidth', 1.2);
+grid on; set(gca, 'Color', 'w'); title('Period: 1000 ms'); ylabel('Foot Trajectory Z');
+legend({'Kiri', 'Kanan'}, 'FontSize', 8);
+
+% Periode 800 ms
+subplot(2,2,2);
+plot(t800, data800.Foot_Trajectory_Z_Left, 'b-', 'LineWidth', 1.2); hold on;
+plot(t800, data800.Foot_Trajectory_Z_Right, 'r--', 'LineWidth', 1.2);
+grid on; set(gca, 'Color', 'w'); title('Period: 800 ms');
+
+% Periode 600 ms
+subplot(2,2,3);
+plot(t600, data600.Foot_Trajectory_Z_Left, 'b-', 'LineWidth', 1.2); hold on;
+plot(t600, data600.Foot_Trajectory_Z_Right, 'r--', 'LineWidth', 1.2);
+grid on; set(gca, 'Color', 'w'); title('Period: 600 ms'); xlabel('Waktu (detik)'); ylabel('Foot Trajectory Z');
+
+% Periode 400 ms
+subplot(2,2,4);
+plot(t400, data400.Foot_Trajectory_Z_Left, 'b-', 'LineWidth', 1.2); hold on;
+plot(t400, data400.Foot_Trajectory_Z_Right, 'r--', 'LineWidth', 1.2);
+grid on; set(gca, 'Color', 'w'); title('Period: 400 ms'); xlabel('Waktu (detik)');
+
+sgtitle('Perbandingan Siklus Angkatan Kaki (Foot Trajectory Z) Kiri vs Kanan', 'FontSize', 13, 'FontWeight', 'bold');

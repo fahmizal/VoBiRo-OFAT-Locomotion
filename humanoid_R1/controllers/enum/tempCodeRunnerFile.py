@@ -1,0 +1,1 @@
+C:/Users/ricoa/OneDrive/Desktop/PROYEK AKHIR/humanoid_R1/controllers/enum/com_log.csv

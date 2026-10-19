@@ -1,0 +1,3140 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Plastic.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/shapes/protos/TexturedBoxShape.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0 0 1 0
+  position 0 0.5 10
+}
+TexturedBackground {
+}
+TexturedBoxShape {
+  size 5 0.05 0.001
+  textureMapping "metric"
+  faceColor 0 0 0
+  frontFace FALSE
+  backFace FALSE
+  leftFace FALSE
+  rightFace FALSE
+  topFace FALSE
+  bottomFace FALSE
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 10
+  floorAppearance Plastic {
+  }
+}
+DEF VOBIRO_DEFAULT Robot {
+  translation 1.66062 -1.28269 0.343155
+  rotation -0.1127614871220774 0.00351650378284354 0.9936158620025964 3.059464710212302
+  children [
+    GPS {
+    }
+    DEF BODY_SLOT Group {
+    }
+    Pose {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        DEF JERSEY_SLOT Slot {
+          type "robotis jersey"
+        }
+      ]
+    }
+    Pose {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        DEF DBodyShape Pose {
+          translation 0.13584 -0.0403 -0.26313
+          children [
+            CadShape {
+              url [
+                "D:/webots/project_pororo/Body/Body.obj"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    LED {
+      translation -0.043 -0.00500339 -0.0100018
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            transparency 0.1
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+      name "BackLedGreen"
+      color [
+        0 1 0
+      ]
+    }
+    LED {
+      translation -0.043 0 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            transparency 0.1
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+      name "BackLedBlue"
+      color [
+        0 0 1
+      ]
+    }
+    LED {
+      translation -0.043 0.005 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.2
+            metalness 0
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+      name "BackLedRed"
+    }
+    Speaker {
+      translation 0.2 0 0
+      rotation -0.9831126183314349 0.12940166088097618 -0.12940166088097618 -1.5878
+      name "Speaker"
+    }
+    Accelerometer {
+      translation -0.01 0 -0.068
+      rotation 0 0 1 -1.5708
+      name "Accelerometer"
+      lookupTable [
+        -39.24 0 0
+        39.24 1024 0
+      ]
+    }
+    Gyro {
+      translation 0.01 0 -0.068
+      rotation 0 0 1 -3.1416
+      name "Gyro"
+      lookupTable [
+        -27.925 0 0
+        27.925 1024 0
+      ]
+    }
+    DEF RECEIVER Receiver {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+    }
+    DEF EMITTER Emitter {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+    }
+    DEF SUPER_EMITTER Emitter {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      name "super_emitter"
+      channel 2
+    }
+    DEF DNeck HingeJoint {
+      jointParameters HingeJointParameters {
+        position 8.041682305969183e-09
+        axis 0 0 1
+        anchor 0 0 0.051
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "Neck"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -1.81
+          maxPosition 1.81
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "NeckS"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0 0.051
+        rotation 0.5774169405488718 0.5773169306224665 0.5773169306228901 2.094399993007518
+        children [
+          DEF DNeckShape Pose {
+            translation -0.07201 -0.0144 0.058972
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Head/HeadAssembly.obj"
+                ]
+              }
+            ]
+          }
+          DEF DHead HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.17355552339371044
+              axis -1 0 0
+              anchor 0 -0.0058 0.0004
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "Head"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -0.36
+                maxPosition 0.94
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "HeadS"
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.001925310829114132 -0.004137266118382615
+              rotation -1 0 0 0.17355552339370983
+              children [
+                DEF HEAD_SLOT Pose {
+                  translation 0 0.022 -0.012
+                }
+                DEF DHeadShape Group {
+                  children [
+                    Shape {
+                      appearance DEF PUPIL_APPEARANCE PBRAppearance {
+                        baseColor 0.05 0.05 0.05
+                        transparency 1
+                        metalness 0
+                      }
+                      geometry IndexedFaceSet {
+                        coord DEF DHeadCoord Coordinate {
+                          point [
+                            0.0392305 0.0221018 -0.0570645, -0.0392305 0.0221018 -0.0570645, 0.0405922 0.0152099 -0.0401748, -0.0405922 0.0152099 -0.0401748, 0.0411355 0.0081425 -0.0334363, -0.0411355 0.0081425 -0.0334363, 0.0416294 -0.0007687 -0.0273103, -0.0416294 -0.0007687 -0.0273103, 0.0424073 -0.0072215 -0.0176621, -0.0424073 -0.0072215 -0.0176621, 0.0433401 -0.0086732 -0.0060919, -0.0433401 -0.0086732 -0.0060919, 0.044197 -0.0061456 0.0045363, -0.044197 -0.0061456 0.0045363, 0.0449545 0.0006532 0.0139317, -0.0449545 0.0006532 0.0139317, 0.0452514 0.0108622 0.0176143, -0.0452514 0.0108622 0.0176143, 0.0452514 0.0212564 0.0176141, -0.0452514 0.0212564 0.0176141, 0.0449057 0.0300627 0.0137528, -0.0449057 0.0300627 0.0137528, 0.0442507 0.0353979 0.0052024, -0.0442507 0.0353979 0.0052024, 0.0433849 0.0381032 -0.0055372, -0.0433849 0.0381032 -0.0055372, 0.038476 0.0363362 -0.0664233, -0.038476 0.0363362 -0.0664233, 0.0116412 0.0265999 0.0366955, -0.0116412 0.0265999 0.0366955, 0.0152554 0.0218632 0.0363648, -0.0152554 0.0218632 0.0363648, 0.0201309 0.0187384 0.0349243, -0.0201309 0.0187384 0.0349243, 0.0255253 0.0177015 0.0325931, -0.0255253 0.0177015 0.0325931, 0.0306174 0.0189101 0.0297263, -0.0306174 0.0189101 0.0297263, 0.034632 0.0221804 0.0267603, -0.034632 0.0221804 0.0267603, 0.0369579 0.0270145 0.0241466, -0.0369579 0.0270145 0.0241466, 0.037241 0.0326763 0.0222832, -0.037241 0.0326763 0.0222832, 0.0354382 0.038304 0.0214537, -0.0354382 0.038304 0.0214537, 0.0318239 0.0430408 0.0217844, -0.0318239 0.0430408 0.0217844, 0.0269485 0.0461655 0.023225, -0.0269485 0.0461655 0.023225, 0.0215541 0.0472024 0.0255561, -0.0215541 0.0472024 0.0255561, 0.016462 0.0459938 0.0284229, -0.016462 0.0459938 0.0284229, 0.0124474 0.0427235 0.0313889, -0.0124474 0.0427235 0.0313889, 0.0101215 0.0378894 0.0340026, -0.0101215 0.0378894 0.0340026, 0.0098384 0.0322276 0.035866, -0.0098384 0.0322276 0.035866, 0.0174415 0.0294527 0.0329804, -0.0174415 0.0294527 0.0329804, 0.0192939 0.0270251 0.032811, -0.0192939 0.0270251 0.032811, 0.0217926 0.0254236 0.0320726, -0.0217926 0.0254236 0.0320726, 0.0245573 0.0248921 0.0308779, -0.0245573 0.0248921 0.0308779, 0.0271671 0.0255116 0.0294086, -0.0271671 0.0255116 0.0294086, 0.0292247 0.0271877 0.0278885, -0.0292247 0.0271877 0.0278885, 0.0304167 0.0296652 0.026549, -0.0304167 0.0296652 0.026549, 0.0305618 0.0325669 0.0255939, -0.0305618 0.0325669 0.0255939, 0.0296378 0.0354512 0.0251688, -0.0296378 0.0354512 0.0251688, 0.0277855 0.0378789 0.0253383, -0.0277855 0.0378789 0.0253383, 0.0252868 0.0394803 0.0260766, -0.0252868 0.0394803 0.0260766, 0.022522 0.0400118 0.0272713, -0.022522 0.0400118 0.0272713, 0.0199123 0.0393923 0.0287406, -0.0199123 0.0393923 0.0287406, 0.0178547 0.0377163 0.0302607, -0.0178547 0.0377163 0.0302607, 0.0166627 0.0352387 0.0316003, -0.0166627 0.0352387 0.0316003, 0.0165176 0.032337 0.0325553, -0.0165176 0.032337 0.0325553, 0.0235397 0.032452 0.0290746, -0.0235397 0.032452 0.0290746, 0.0195178 0.0464315 -0.0795508, -0.0195178 0.0464315 -0.0795508, 0.0225675 0.0325759 -0.07354, -0.0225675 0.0325759 -0.07354, 0.0195174 0.016289 -0.0574006, -0.0195174 0.016289 -0.0574006, 0.0186086 0.0055227 -0.0552789, -0.0186086 0.0055227 -0.0552789, 0.0184255 -0.0009917 -0.051584, -0.0184255 -0.0009917 -0.051584, 0.0186973 -0.0121609 -0.0394498, -0.0186973 -0.0121609 -0.0394498, 0.0207908 -0.0194756 -0.0266185, -0.0207908 -0.0194756 -0.0266185, 0.0185759 -0.0211818 -0.014516, -0.0185759 -0.0211818 -0.014516, 0.0186379 -0.0196935 -0.001655, -0.0186379 -0.0196935 -0.001655, 0.0187539 -0.0135358 0.0128219, -0.0187539 -0.0135358 0.0128219, 0.018584 -0.0050813 0.024037, -0.018584 -0.0050813 0.024037, 0.0164893 0.0066883 0.0349741, -0.0164893 0.0066883 0.0349741, 0.0165623 0.0155422 0.0362219, -0.0165623 0.0155422 0.0362219, 0.0170276 0.0499737 0.0249869, -0.0170276 0.0499737 0.0249869, 0.01726 0.0553882 0.0150497, -0.01726 0.0553882 0.0150497, 0.0120454 0.0605195 0.0046781, -0.0120454 0.0605195 0.0046781, 0.0181589 0.0602533 -0.0062721, -0.0181589 0.0602533 -0.0062721, 0.0195168 0.060201 -0.0189165, -0.0195168 0.060201 -0.0189165, 0.0195174 0.0540533 -0.0540891, -0.0195174 0.0540533 -0.0540891, 0 -0.0138808 -0.0402319, 0 -0.0213466 -0.0278119, 0 -0.0227678 -0.0144287, 0 -0.022019 -1.81e-05, 0 -0.0156556 0.0154359, 0 -0.0061624 0.0265574, 0 0.0074755 0.0378864, 0 0.0175306 0.0379284, 0 0.032467 0.0361502, 0 0.0381629 0.0344413, 0 0.045242 0.0309423, 0 0.0488546 0.0285779, 0 0.057406 0.0180599, 0 0.0609716 0.0107532, 0 0.060921 -0.0062633, 0 0.0608675 -0.0189168, 0 0.051912 -0.0393596, 0 0.0386829 -0.0524273, 0.0195171 0.0508041 -0.0384949, -0.0195171 0.0508041 -0.0384949, 0.0195173 0.0380376 -0.0514338, -0.0195173 0.0380376 -0.0514338, 0 0.0161334 -0.0593111, 0 0.004431 -0.0571641, 0 -0.0022158 -0.0534247, 0.0291343 0.0417313 -0.0729934, -0.0291343 0.0417313 -0.0729934, 0.0304317 0.0350942 -0.0702807, -0.0304317 0.0350942 -0.0702807, 0.0297588 0.0190742 -0.0580713, -0.0297588 0.0190742 -0.0580713, 0.031687 0.0160369 -0.0526305, -0.031687 0.0160369 -0.0526305, 0.0309837 0.0092284 -0.0486846, -0.0309837 0.0092284 -0.0486846, 0.030947 0.0028528 -0.0442747, -0.030947 0.0028528 -0.0442747, 0.0313671 -0.0070052 -0.0342981, -0.0313671 -0.0070052 -0.0342981, 0.0327293 -0.0142829 -0.0243646, -0.0327293 -0.0142829 -0.0243646, 0.0320906 -0.0174994 -0.0152496, -0.0320906 -0.0174994 -0.0152496, 0.0334606 -0.0171215 -0.0025047, -0.0334606 -0.0171215 -0.0025047, 0.0348758 -0.0119176 0.010511, -0.0348758 -0.0119176 0.010511, 0.0352073 -0.0039472 0.0212155, -0.0352073 -0.0039472 0.0212155, 0.0303691 0.0014046 0.0276174, -0.0303691 0.0014046 0.0276174, 0.0331355 0.0159014 0.0280857, -0.0331355 0.0159014 0.0280857, 0.033055 0.0441668 0.018925, -0.033055 0.0441668 0.018925, 0.0272452 0.0520301 0.0117203, -0.0272452 0.0520301 0.0117203, 0.0274988 0.054967 0.0026082, -0.0274988 0.054967 0.0026082, 0.0273044 0.0556295 -0.0065691, -0.0273044 0.0556295 -0.0065691, 0.0276693 0.0543365 -0.0244786, -0.0276693 0.0543365 -0.0244786, 0.0323266 0.0444186 -0.0491837, -0.0323266 0.0444186 -0.0491837, 0.0417486 0.0375142 -0.0258325, -0.0417486 0.0375142 -0.0258325, 0.0401123 0.0369252 -0.0461279, -0.0401123 0.0369252 -0.0461279, 0.0070464 0.0573781 0.01728, -0.0070464 0.0573781 0.01728, 0.0083894 0.0559858 0.019199, -0.0083894 0.0559858 0.019199, 0.008978 0.0540208 0.0218855, -0.008978 0.0540208 0.0218855, 0.0049843 0.051013 0.0258813, -0.0049843 0.051013 0.0258813, 0.0381348 0.039614 0.0149968, -0.0381348 0.039614 0.0149968, 0.0374798 0.0437726 0.0079673, -0.0374798 0.0437726 0.0079673, 0.0368872 0.0477009 -0.0022339, -0.0368872 0.0477009 -0.0022339, 0.0349777 0.0463099 -0.0278206, -0.0349777 0.0463099 -0.0278206, 0 0.0572104 -0.0285718, 0 0.0462024 -0.0462686, 0.0195172 0.0456088 -0.0455197, -0.0195172 0.0456088 -0.0455197, 0.0195174 0.0280225 -0.056562, -0.0195174 0.0280225 -0.056562, 0 0.0286387 -0.0571265, 0.0195169 0.0566908 -0.0283183, -0.0195169 0.0566908 -0.0283183
+                          ]
+                        }
+                        coordIndex [
+                          62, 92, 60, -1, 61, 93, 63, -1, 64, 92, 62, -1, 63, 93, 65, -1, 66, 92, 64, -1, 65, 93, 67, -1, 68, 92, 66, -1, 67, 93, 69, -1, 70, 92, 68, -1, 69, 93, 71, -1, 72, 92, 70, -1, 71, 93, 73, -1, 74, 92, 72, -1, 73, 93, 75, -1, 76, 92, 74, -1, 75, 93, 77, -1, 78, 92, 76, -1, 77, 93, 79, -1, 80, 92, 78, -1, 79, 93, 81, -1, 82, 92, 80, -1, 81, 93, 83, -1, 84, 92, 82, -1, 83, 93, 85, -1, 86, 92, 84, -1, 85, 93, 87, -1, 88, 92, 86, -1, 87, 93, 89, -1, 90, 92, 88, -1, 89, 93, 91, -1, 60, 92, 90, -1, 91, 93, 61, -1
+                        ]
+                        creaseAngle 0.52
+                      }
+                    }
+                    Pose {
+                      translation -0.072 -0.0132 0.0624
+                      children [
+                        DEF DHeadCoord CadShape {
+                          url [
+                            "D:/webots/project_pororo/Head/camera.obj"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+                Camera {
+                  translation -1.39746e-07 0.0329072 0.0145
+                  rotation -0.4472180556614335 -0.44721705566130904 -0.7745920964069002 1.82348
+                  children [
+                    DEF DCameraShape Shape {
+                      appearance DEF DCameraAppearance PBRAppearance {
+                        transparency 1
+                        roughness 0.3
+                        metalness 0
+                      }
+                      geometry IndexedFaceSet {
+                        coord Coordinate {
+                          point [
+                            0.0016242 -0.0012902 0.0006454
+                            0.0009796 -0.0012902 -0.0018532
+                            0.0009796 0.0012902 -0.0018532
+                            0.0016242 0.0012902 0.0006454
+                            -0.0001212 -0.0030927 0.0010956
+                            -0.0007657 -0.0030927 -0.001403
+                            -0.001216 -0.0012902 -0.0031483
+                            -0.001216 0.0012901 -0.0031484
+                            -0.0007657 0.0030927 -0.001403
+                            -0.0001212 0.0030927 0.0010956
+                            0.0003291 -0.0012902 0.002841
+                            0.0003291 0.0012902 0.002841
+                          ]
+                        }
+                        coordIndex [
+                          0, 10, 4, -1, 1, 5, 6, -1, 2, 7, 8, -1, 3, 9, 11, -1, 9, 3, 2, -1, 9, 2, 8, -1, 10, 0, 3, -1, 10, 3, 11, -1, 7, 2, 1, -1, 7, 1, 6, -1, 0, 4, 5, -1, 0, 5, 1, -1, 0, 1, 2, -1, 0, 2, 3, -1
+                        ]
+                        creaseAngle 0.2
+                      }
+                    }
+                  ]
+                  name "Camera"
+                  fieldOfView 1.0123
+                  width 160
+                  height 120
+                  zoom Zoom {
+                  }
+                }
+                DEF DEyeLED LED {
+                  rotation 1 0 0 0
+                  children [
+                    DEF DEyeLEDShape Shape {
+                      appearance DEF DEyeLEDAppearance PBRAppearance {
+                        baseColor 0.7 0.7 0.7
+                        transparency 1
+                        roughness 0.3
+                        metalness 0
+                        emissiveIntensity 6
+                      }
+                      geometry IndexedFaceSet {
+                        coord Coordinate {
+                          point [
+                            0.0116412 0.0265999 0.0366955, -0.0116412 0.0265999 0.0366955, 0.0152554 0.0218632 0.0363648, -0.0152554 0.0218632 0.0363648, 0.0201309 0.0187384 0.0349243, -0.0201309 0.0187384 0.0349243, 0.0255253 0.0177015 0.0325931, -0.0255253 0.0177015 0.0325931, 0.0306174 0.0189101 0.0297263, -0.0306174 0.0189101 0.0297263, 0.034632 0.0221804 0.0267603, -0.034632 0.0221804 0.0267603, 0.0369579 0.0270145 0.0241466, -0.0369579 0.0270145 0.0241466, 0.037241 0.0326763 0.0222832, -0.037241 0.0326763 0.0222832, 0.0354382 0.038304 0.0214537, -0.0354382 0.038304 0.0214537, 0.0318239 0.0430408 0.0217844, -0.0318239 0.0430408 0.0217844, 0.0269485 0.0461655 0.023225, -0.0269485 0.0461655 0.023225, 0.0215541 0.0472024 0.0255561, -0.0215541 0.0472024 0.0255561, 0.016462 0.0459938 0.0284229, -0.016462 0.0459938 0.0284229, 0.0124474 0.0427235 0.0313889, -0.0124474 0.0427235 0.0313889, 0.0101215 0.0378894 0.0340026, -0.0101215 0.0378894 0.0340026, 0.0098384 0.0322276 0.035866, -0.0098384 0.0322276 0.035866, 0.0174415 0.0294527 0.0329804, -0.0174415 0.0294527 0.0329804, 0.0192939 0.0270251 0.032811, -0.0192939 0.0270251 0.032811, 0.0217926 0.0254236 0.0320726, -0.0217926 0.0254236 0.0320726, 0.0245573 0.0248921 0.0308779, -0.0245573 0.0248921 0.0308779, 0.0271671 0.0255116 0.0294086, -0.0271671 0.0255116 0.0294086, 0.0292247 0.0271877 0.0278885, -0.0292247 0.0271877 0.0278885, 0.0304167 0.0296652 0.026549, -0.0304167 0.0296652 0.026549, 0.0305618 0.0325669 0.0255939, -0.0305618 0.0325669 0.0255939, 0.0296378 0.0354512 0.0251688, -0.0296378 0.0354512 0.0251688, 0.0277855 0.0378789 0.0253383, -0.0277855 0.0378789 0.0253383, 0.0252868 0.0394803 0.0260766, -0.0252868 0.0394803 0.0260766, 0.022522 0.0400118 0.0272713, -0.022522 0.0400118 0.0272713, 0.0199123 0.0393923 0.0287406, -0.0199123 0.0393923 0.0287406, 0.0178547 0.0377163 0.0302607, -0.0178547 0.0377163 0.0302607, 0.0166627 0.0352387 0.0316003, -0.0166627 0.0352387 0.0316003, 0.0165176 0.032337 0.0325553, -0.0165176 0.032337 0.0325553
+                          ]
+                        }
+                        coordIndex [
+                          0, 32, 62, -1, 63, 33, 1, -1, 0, 62, 30, -1, 31, 63, 1, -1, 0, 2, 34, -1, 35, 3, 1, -1, 0, 34, 32, -1, 33, 35, 1, -1, 2, 4, 36, -1, 37, 5, 3, -1, 2, 36, 34, -1, 35, 37, 3, -1, 6, 8, 40, -1, 41, 9, 7, -1, 6, 40, 38, -1, 39, 41, 7, -1, 8, 10, 42, -1, 43, 11, 9, -1, 8, 42, 40, -1, 41, 43, 9, -1, 10, 12, 44, -1, 45, 13, 11, -1, 10, 44, 42, -1, 43, 45, 11, -1, 14, 16, 48, -1, 49, 17, 15, -1, 14, 48, 46, -1, 47, 49, 15, -1, 16, 18, 50, -1, 51, 19, 17, -1, 16, 50, 48, -1, 49, 51, 17, -1, 18, 20, 52, -1, 53, 21, 19, -1, 18, 52, 50, -1, 51, 53, 19, -1, 22, 24, 56, -1, 57, 25, 23, -1, 22, 56, 54, -1, 55, 57, 23, -1, 24, 26, 58, -1, 59, 27, 25, -1, 24, 58, 56, -1, 57, 59, 25, -1, 26, 28, 60, -1, 61, 29, 27, -1, 26, 60, 58, -1, 59, 61, 27, -1, 28, 30, 62, -1, 63, 31, 29, -1, 28, 62, 60, -1, 61, 63, 29, -1, 4, 6, 38, -1, 39, 7, 5, -1, 4, 38, 36, -1, 37, 39, 5, -1, 12, 14, 46, -1, 47, 15, 13, -1, 12, 46, 44, -1, 45, 47, 13, -1, 20, 22, 54, -1, 55, 23, 21, -1, 20, 54, 52, -1, 53, 55, 21, -1
+                        ]
+                        creaseAngle 0.2
+                      }
+                    }
+                  ]
+                  name "EyeLed"
+                  color []
+                  gradual TRUE
+                }
+                DEF DHeadLED LED {
+                  rotation 1 0 0 0
+                  children [
+                    DEF DHeadLEDShape Shape {
+                      appearance DEF DHeadLEDAppearance PBRAppearance {
+                        baseColor 0.7 0.7 0.7
+                        transparency 1
+                        roughness 0.3
+                        metalness 0
+                        emissiveIntensity 6
+                      }
+                      geometry IndexedFaceSet {
+                        coord Coordinate {
+                          point [
+                            0 0.0488546 0.0285779
+                            0 0.057406 0.0180599
+                            0.0070464 0.0573781 0.01728
+                            -0.0070464 0.0573781 0.01728
+                            0.0083894 0.0559858 0.019199
+                            -0.0083894 0.0559858 0.019199
+                            0.008978 0.0540208 0.0218855
+                            -0.008978 0.0540208 0.0218855
+                            0.0049843 0.051013 0.0258813
+                            -0.0049843 0.051013 0.0258813
+                          ]
+                        }
+                        coordIndex [
+                          0, 8, 1, -1, 9, 0, 1, -1, 1, 8, 6, -1, 7, 9, 1, -1, 1, 6, 4, -1, 5, 7, 1, -1, 1, 4, 2, -1, 3, 5, 1, -1
+                        ]
+                        creaseAngle 0.2
+                      }
+                    }
+                  ]
+                  name "HeadLed"
+                  color []
+                  gradual TRUE
+                }
+              ]
+              boundingObject Pose {
+                translation 0 0.013 -0.008
+                children [
+                  Box {
+                    size 0.093 0.063 0.056
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.35
+                centerOfMass [
+                  6.39198e-05 0.0185645 0.00766662
+                ]
+                inertiaMatrix [
+                  0.0001239683 0.00011783781 0.00011583601
+                  7.8494368e-07 -7.645979e-08 1.2199205e-05
+                ]
+              }
+            }
+          }
+        ]
+        name "neck"
+        boundingObject Pose {
+          translation 0 -0.0116 0.0002
+          children [
+            Box {
+              size 0.048 0.0385 0.027
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.0243577
+          centerOfMass [
+            -0.00071 0.00142 -0.01657
+          ]
+          inertiaMatrix [
+            5.1411124e-06 8.1915737e-06 1.1379812e-05
+            -5.7530255e-07 -2.4729049e-08 -1.9223094e-07
+          ]
+        }
+      }
+    }
+    DEF DPelvYL HingeJoint {
+      jointParameters HingeJointParameters {
+        position 7.696816152873371e-06
+        axis 0 0 -1
+        anchor 0.00028 0.038 0
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "PelvYL"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -0.69
+          maxPosition 2.5
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "PelvYLS"
+        }
+      ]
+      endPoint Solid {
+        translation -0.009419999752522557 0.03803007991115857 -0.13899999999999416
+        rotation 0.5773597439245117 0.5773455154994322 0.5773455480283162 2.0944105130859487
+        children [
+          DEF DPelvYLShape Pose {
+            translation 0.02591 0.00695 -0.00228
+            rotation 0 0 1 1.01503e-06
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Leg/HipL.obj"
+                ]
+              }
+            ]
+          }
+          DEF DPelvL HingeJoint {
+            jointParameters HingeJointParameters {
+              position -0.006141151414327297
+              axis 0 0 -1
+              anchor 0.00012 -0.0055 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "PelvL"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -1
+                maxPosition 0.93
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "PelvLS"
+              }
+            ]
+            endPoint Solid {
+              translation -3.3773857656568056e-05 -8.406459981518885e-07 0
+              rotation 0 0 1 0.006141151414306284
+              children [
+                Pose {
+                  translation 0.02592 0.00695 -0.0023
+                  rotation 0 0 -1 0
+                  children [
+                    CadShape {
+                      url [
+                        "D:/webots/project_pororo/Leg/HipMotorL.obj"
+                      ]
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position 0.6312502041702681
+                    axis -1 0 0
+                    anchor 0 -0.0055 0.00603
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    RotationalMotor {
+                      name "LegUpperL"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -0.5
+                      maxPosition 1.68
+                      maxTorque 2.5
+                    }
+                    PositionSensor {
+                      name "LegUpperLS"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation -0.001079999999999995 0.0030757009074143787 0.0021887692146160638
+                    rotation -1 0 0 0.6312502041702678
+                    children [
+                      Pose {
+                        rotation 1 0 0 0
+                        children [
+                          DEF DLegUpperLShape Group {
+                            children [
+                              Pose {
+                                translation 0.027 0.0033 -0.01031
+                                children [
+                                  CadShape {
+                                    url [
+                                      "D:/webots/project_pororo/Leg/FemurL.obj"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                          DEF DLegLowerL HingeJoint {
+                            jointParameters HingeJointParameters {
+                              position -0.9292139981358657
+                              axis -1 0 0
+                              anchor 0 -0.10422 -0.00205
+                              dampingConstant 0.002
+                              staticFriction 0.025
+                            }
+                            device [
+                              RotationalMotor {
+                                name "LegLowerL"
+                                acceleration 55
+                                maxVelocity 12.26
+                                minPosition -2.250002645680517
+                                maxPosition 0.03
+                                maxTorque 2.5
+                              }
+                              PositionSensor {
+                                name "LegLowerLS"
+                              }
+                            ]
+                            endPoint Solid {
+                              translation 0 -0.0989470681146512 -0.012953902481794063
+                              rotation 1 0 0 0.9292139981358655
+                              children [
+                                DEF DLegLowerLShape Pose {
+                                  translation 0.027 0.113 0.00251
+                                  children [
+                                    CadShape {
+                                      url [
+                                        "D:/webots/project_pororo/Leg/TibiaL.obj"
+                                      ]
+                                    }
+                                  ]
+                                }
+                                DEF DAnkleL HingeJoint {
+                                  jointParameters HingeJointParameters {
+                                    position -0.5237384349570485
+                                    anchor 0 -0.0894 0.01078
+                                    dampingConstant 0.002
+                                    staticFriction 0.025
+                                  }
+                                  device [
+                                    RotationalMotor {
+                                      name "AnkleL"
+                                      acceleration 55
+                                      maxVelocity 12.26
+                                      minPosition -2.39
+                                      maxPosition 1.22
+                                      maxTorque 2.5
+                                    }
+                                    PositionSensor {
+                                      name "AnkleLS"
+                                    }
+                                  ]
+                                  endPoint Solid {
+                                    translation 0 -0.08488514819135168 -0.002197538793852231
+                                    rotation -1 0 0 0.5237384349570485
+                                    children [
+                                      DEF DAnkleLShape Pose {
+                                        translation 0.027 0.192 0.000725
+                                        children [
+                                          CadShape {
+                                            url [
+                                              "D:/webots/project_pororo/Leg/AnkleL.obj"
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                      HingeJoint {
+                                        jointParameters HingeJointParameters {
+                                          position -0.013823119049115411
+                                          axis 0 0 1
+                                          anchor 0.0012 -0.0103 0
+                                          dampingConstant 0.002
+                                          staticFriction 0.025
+                                        }
+                                        device [
+                                          RotationalMotor {
+                                            name "FootL"
+                                            acceleration 55
+                                            maxVelocity 12.26
+                                            minPosition -1.02
+                                            maxPosition 0.6
+                                            maxTorque 2.5
+                                          }
+                                          PositionSensor {
+                                            name "FootLS"
+                                          }
+                                        ]
+                                        endPoint Solid {
+                                          translation 0.00014248823735988595 1.560317537803793e-05 0
+                                          rotation 0 0 -0.9999999999999999 0.01382311904911601
+                                          children [
+                                            Pose {
+                                              translation 0.027 0.192 0.000725
+                                              children [
+                                                DEF LEFT_FOOT_SLOT Group {
+                                                }
+                                                DEF DFootLShape Group {
+                                                  children [
+                                                    Pose {
+                                                      children [
+                                                        CadShape {
+                                                          url [
+                                                            "D:/webots/project_pororo/Leg/FootL.obj"
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                          boundingObject Group {
+                                            children [
+                                              Pose {
+                                                translation 0.006 -0.0429 0.0127
+                                                children [
+                                                  Box {
+                                                    size 0.07 0.005 0.14
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                          physics Physics {
+                                            density -1
+                                            mass 0.221488
+                                          }
+                                        }
+                                      }
+                                    ]
+                                    name "solid(1)"
+                                    boundingObject Group {
+                                      children [
+                                        Pose {
+                                          translation 0.00134 0.0042 -0.0072
+                                          children [
+                                            Box {
+                                              size 0.034 0.0515 0.079
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                    physics Physics {
+                                      density -1
+                                      mass 0.221488
+                                    }
+                                  }
+                                }
+                              ]
+                              boundingObject Group {
+                                children [
+                                  Pose {
+                                    translation 0.0013 -0.0419 0.01735
+                                    rotation 1 0 0 0
+                                    children [
+                                      Box {
+                                        size 0.048 0.115 0.041
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                              physics Physics {
+                                density -1
+                                mass 0.095376
+                                centerOfMass [
+                                  -0.000592469 -0.0539545 0.00654763
+                                ]
+                                inertiaMatrix [
+                                  9.3369608e-05 4.6295534e-05 0.00011351516
+                                  -9.3567395e-07 -2.3992085e-07 -1.2858493e-05
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Pose {
+                      translation 0.0013 -0.0573 -0.002
+                      rotation 1 0 0 0
+                      children [
+                        Box {
+                          size 0.048 0.116 0.0285
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.1357538
+                    }
+                  }
+                }
+              ]
+              name "solid(1)"
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0002 -0.02 -0.0102
+                    children [
+                      Box {
+                        size 0.034 0.0515 0.079
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.1357538
+              }
+            }
+          }
+        ]
+        name "pelvYL"
+        boundingObject Group {
+          children [
+            Pose {
+              translation 0 0.007 0.0097
+              children [
+                Box {
+                  size 0.0235 0.045 0.047
+                }
+              ]
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.1774664
+        }
+      }
+    }
+    DEF DPelvYR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -8.204456640033865e-06
+        axis 0 0 -1
+        anchor 0.0003 -0.0369 0
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "PelvYR"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -2.42
+          maxPosition 0.66
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "PelvYRS"
+        }
+      ]
+      endPoint Solid {
+        translation -0.009579840244297241 -0.03687028110432433 -0.13899999999999266
+        rotation 0.5773231202822264 0.5773638669809995 0.5773638193481997 2.094421524501892
+        children [
+          DEF DPelvYRShape Pose {
+            translation 0.01287 0.034 -0.04897
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Leg/HipR.obj"
+                ]
+              }
+            ]
+          }
+          DEF DPelvR HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.004528426375427182
+              axis 0 0 -1
+              anchor -7e-05 -0.00595 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              PositionSensor {
+                name "PelvRS"
+              }
+              RotationalMotor {
+                name "PelvR"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -1.01
+                maxPosition 1.01
+                maxTorque 2.5
+              }
+            ]
+            endPoint Solid {
+              translation 2.4135712356601507e-05 -0.0006203716388793112 0.0006000000000000113
+              rotation 0 0 -1 0.004528426375422994
+              children [
+                Pose {
+                  translation 0.01287 0.0346 -0.0496
+                  rotation 0 0 -1 0
+                  children [
+                    DEF DPelvRShape CadShape {
+                      url [
+                        "D:/webots/project_pororo/Leg/HipMotorR.obj"
+                      ]
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -0.6312510428183545
+                    anchor 0 -0.00528 0.0055
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    PositionSensor {
+                      name "LegUpperRS"
+                    }
+                    RotationalMotor {
+                      name "LegUpperR"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -1.77
+                      maxPosition 0.45
+                      maxTorque 2.5
+                    }
+                  ]
+                  endPoint Solid {
+                    translation -0.004900000000000125 0.0035411681842714773 0.002519833584377731
+                    rotation -1 0 0 0.6312510428183546
+                    children [
+                      Pose {
+                        translation 0.0061 0.0044 -0.00585
+                        rotation 1 0 0 0
+                        children [
+                          DEF DLegUpperRShape Group {
+                            children [
+                              Pose {
+                                translation 0.0117 0.0266 -0.05205
+                                children [
+                                  CadShape {
+                                    url [
+                                      "D:/webots/project_pororo/Leg/FemurR.obj"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                          DEF DLegLowerR HingeJoint {
+                            jointParameters HingeJointParameters {
+                              position 0.9292136602909685
+                              anchor 0 -0.1083 0.003
+                              dampingConstant 0.002
+                              staticFriction 0.025
+                            }
+                            device [
+                              RotationalMotor {
+                                name "LegLowerR"
+                                acceleration 55
+                                maxVelocity 12.26
+                                minPosition -0.02
+                                maxPosition 2.2500008467517643
+                                maxTorque 2.5
+                              }
+                              PositionSensor {
+                                name "LegLowerRS"
+                              }
+                            ]
+                            endPoint Solid {
+                              translation 0 -0.09643723070766723 -0.00885726379553408
+                              rotation 1 0 0 0.9292136602909684
+                              children [
+                                DEF DLegLowerRShape Pose {
+                                  translation 0.0117 0.1373 -0.03845
+                                  children [
+                                    CadShape {
+                                      url [
+                                        "D:/webots/project_pororo/Leg/TibiaR.obj"
+                                      ]
+                                    }
+                                  ]
+                                }
+                                DEF DAnkleR HingeJoint {
+                                  jointParameters HingeJointParameters {
+                                    position 0.5237385919247728
+                                    axis -1 0 0
+                                    anchor 0 -0.09265 0.01663
+                                    dampingConstant 0.002
+                                    staticFriction 0.025
+                                  }
+                                  device [
+                                    RotationalMotor {
+                                      name "AnkleR"
+                                      acceleration 55
+                                      maxVelocity 12.26
+                                      minPosition -1.24
+                                      maxPosition 1.88
+                                      maxTorque 2.5
+                                    }
+                                    PositionSensor {
+                                      name "AnkleRS"
+                                    }
+                                  ]
+                                  endPoint Solid {
+                                    translation -0.0012999999999999143 -0.08983163825427762 0.005613819306572319
+                                    rotation -1 0 0 0.5237385919247729
+                                    children [
+                                      DEF DAnkleRShape Pose {
+                                        translation 0.013 0.222 -0.047
+                                        children [
+                                          CadShape {
+                                            url [
+                                              "D:/webots/project_pororo/Leg/AnkleR.obj"
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                      HingeJoint {
+                                        jointParameters HingeJointParameters {
+                                          position 0.013823181963599733
+                                          axis 0 0 1
+                                          anchor 0.0004 -0.008 0
+                                          dampingConstant 0.002
+                                          staticFriction 0.025
+                                        }
+                                        device [
+                                          RotationalMotor {
+                                            name "FootR"
+                                            acceleration 55
+                                            maxVelocity 12.26
+                                            minPosition -0.68
+                                            maxPosition 1.04
+                                            maxTorque 2.5
+                                          }
+                                          PositionSensor {
+                                            name "FootRS"
+                                          }
+                                        ]
+                                        endPoint Solid {
+                                          translation -0.00011054371849430442 -6.2934059657359515e-06 0
+                                          rotation 0 0 1 0.013823181963615368
+                                          children [
+                                            Pose {
+                                              translation 0.013 0.222 -0.047
+                                              children [
+                                                DEF RIGHT_FOOT_SLOT Group {
+                                                }
+                                                DEF DFootRShape Group {
+                                                  children [
+                                                    Pose {
+                                                      children [
+                                                        CadShape {
+                                                          url [
+                                                            "D:/webots/project_pororo/Leg/FootR.obj"
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                          boundingObject Group {
+                                            children [
+                                              Pose {
+                                                translation -0.0047 -0.0404 0.0119
+                                                children [
+                                                  Box {
+                                                    size 0.07 0.005 0.14
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                          physics Physics {
+                                            density -1
+                                            mass 0.221488
+                                          }
+                                        }
+                                      }
+                                    ]
+                                    name "solid(1)"
+                                    boundingObject Group {
+                                      children [
+                                        Pose {
+                                          translation 0.0005 0.0066 -0.0081
+                                          children [
+                                            Box {
+                                              size 0.034 0.0515 0.079
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                    physics Physics {
+                                      density -1
+                                      mass 0.221488
+                                    }
+                                  }
+                                }
+                              ]
+                              boundingObject Group {
+                                children [
+                                  Pose {
+                                    translation -0.0011 -0.0451 0.0232
+                                    rotation 1 0 0 0
+                                    children [
+                                      Box {
+                                        size 0.048 0.115 0.041
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                              physics Physics {
+                                density -1
+                                mass 0.095376
+                                centerOfMass [
+                                  0.000592469 -0.0539545 0.00654763
+                                ]
+                                inertiaMatrix [
+                                  9.3369608e-05 4.6295534e-05 0.00011351516
+                                  9.3567395e-07 2.3992085e-07 -1.2858493e-05
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Group {
+                      children [
+                        Pose {
+                          translation 0.005 -0.057 -0.0027
+                          rotation 1 0 0 0
+                          children [
+                            Box {
+                              size 0.048 0.116 0.0285
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.1357538
+                    }
+                  }
+                }
+              ]
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0006 -0.0199 -0.0108
+                    children [
+                      Box {
+                        size 0.034 0.0515 0.079
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.1357538
+              }
+            }
+          }
+        ]
+        name "pelvYR"
+        boundingObject Group {
+          children [
+            Pose {
+              translation 0 0.0066 0.0098
+              children [
+                Box {
+                  size 0.0235 0.045 0.047
+                }
+              ]
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.1774664
+        }
+      }
+    }
+    DEF DShoulderL HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.7218681271755495
+        axis 0 1 0
+        anchor 0.0004 0 -0.0012
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "ShoulderL"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -3.14
+          maxPosition 2.85
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "ShoulderLS"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0011913148772248355 0.08559999999999225 -0.0007855568291822092
+        rotation 0.6735484475761715 0.6735484171301523 0.30440929445270853 2.550658128889704
+        children [
+          DEF DShoulderLShape Pose {
+            translation -0.0375 -0.0185 0.0445
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Arm/ShoullderL.obj"
+                ]
+              }
+            ]
+          }
+          DEF DArmUpperL HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.3071779483553609
+              axis 0 0 -1
+              anchor 0.00345 -0.01585 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "ArmUpperL"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -2.25
+                maxPosition 0.77
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "ArmUpperLS"
+              }
+            ]
+            endPoint Solid {
+              translation -0.006915316071253489 -0.0033822326480223708 0
+              rotation 0 0 0.9999999999999999 0.47822235774493677
+              children [
+                DEF DArmUpperLShape Group {
+                  children [
+                    Pose {
+                      translation -0.0375 -0.0185 0.0445
+                      children [
+                        CadShape {
+                          url [
+                            "D:/webots/project_pororo/Arm/ArmTopL.obj"
+                          ]
+                        }
+                        CadShape {
+                          url [
+                            "D:/webots/project_pororo/Arm/ArmMiddleL.obj"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+                DEF DArmLowerL HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -0.5160589072084253
+                    anchor 0 -0.12435 0.02165
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    RotationalMotor {
+                      name "ArmLowerL"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -1.18
+                      maxPosition 1.63
+                      maxTorque 2.5
+                    }
+                    PositionSensor {
+                      name "ArmLowerLS"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 -0.030640486019527555 -0.044909537179436756
+                    rotation -0.9999999999999982 5.965154883868365e-08 -1.1154502278466459e-08 2.0868585992534343
+                    children [
+                      DEF LEFT_HAND_SLOT Group {
+                      }
+                      DEF DArmLowerLShape Group {
+                        children [
+                          Pose {
+                            translation -0.0375 0.0842 -0.0815
+                            children [
+                              CadShape {
+                                url [
+                                  "D:/webots/project_pororo/Arm/ArmBotL.obj"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Pose {
+                      translation 0.0034 -0.0484 -0.1145
+                      children [
+                        Box {
+                          size 0.038 0.105 0.0325
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.0592885
+                      centerOfMass [
+                        0.003 -0.05 -0.0112
+                      ]
+                      inertiaMatrix [
+                        8.6855267e-05 2.1192085e-05 8.684545e-05
+                        5.3020311e-06 4.3636051e-07 -6.4855932e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0033 -0.047 -0.0005
+                    children [
+                      Box {
+                        size 0.039 0.085 0.047
+                      }
+                    ]
+                  }
+                  Pose {
+                    translation 0.0035 -0.1067 0.0117
+                    rotation 0 1 0 1.5708
+                    children [
+                      Box {
+                        size 0.02 0.035 0.048
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.168377
+                centerOfMass [
+                  0.000659787 -0.036239 0.000734065
+                ]
+                inertiaMatrix [
+                  0.00012202839 3.8088441e-05 0.0001134083
+                  -2.0812626e-06 -8.8143449e-07 1.8251448e-06
+                ]
+              }
+            }
+          }
+        ]
+        name "shoulderL"
+        boundingObject Pose {
+          translation -0.005 -0.0081 0
+          children [
+            Box {
+              size 0.0368 0.0348 0.048
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.025913
+          centerOfMass [
+            0.00139 -0.01352 0.01264
+          ]
+          inertiaMatrix [
+            9.7758165e-06 1.0511104e-05 5.476798e-06
+            1.6911839e-06 -4.5174329e-07 3.3406955e-07
+          ]
+        }
+      }
+    }
+    DEF DShoulderR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -0.8447392619173507
+        axis 0 -1 0
+        anchor 0.0003 0 -0.0018
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "ShoulderR"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -3.14
+          maxPosition 3.14
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "ShoulderRS"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0016512153597903739 -0.08559999999999111 -0.0011620905962542371
+        rotation 0.682900334853886 0.6828983269385169 0.2594166681634481 2.634009732592177
+        children [
+          DEF DShoulderRShape Pose {
+            translation -0.0442 -0.0191 0.0444
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Arm/ShoullderR.obj"
+                ]
+              }
+            ]
+          }
+          DEF DArmUpperR HingeJoint {
+            jointParameters HingeJointParameters {
+              position -0.3117856531822
+              axis 0 0 -1
+              anchor -0.0032 -0.0163 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "ArmUpperR"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -0.68
+                maxPosition 2.3
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "ArmUpperRS"
+              }
+            ]
+            endPoint Solid {
+              translation -0.01268469117804009 -0.009690867435343444 0
+              rotation 0 0 -1 0.47361465291812277
+              children [
+                DEF DArmUpperRShape Pose {
+                  translation -0.0294 -0.00435 0.0444
+                  children [
+                    CadShape {
+                      url [
+                        "D:/webots/project_pororo/Arm/ArmTopR.obj"
+                      ]
+                    }
+                    CadShape {
+                      url [
+                        "D:/webots/project_pororo/Arm/ArmMiddleR.obj"
+                      ]
+                    }
+                  ]
+                }
+                DEF DArmLowerR HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position 0.5114512835770648
+                    axis -1 0 0
+                    anchor 0 -0.1101 0.0216
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    RotationalMotor {
+                      name "ArmLowerR"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -1.65
+                      maxPosition 1.16
+                      maxTorque 2.5
+                    }
+                    PositionSensor {
+                      name "ArmLowerRS"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 -0.09426382916272683 -0.07788098156538287
+                    rotation -1 0 0 2.0822509584986904
+                    children [
+                      DEF RIGHT_HAND_SLOT Group {
+                      }
+                      DEF DArmLowerRShape Group {
+                        children [
+                          Pose {
+                            translation -0.0294 0.0169 -0.0298
+                            children [
+                              CadShape {
+                                url [
+                                  "D:/webots/project_pororo/Arm/ArmBotR.obj"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Pose {
+                      translation 0.0116 -0.1157 -0.0626
+                      children [
+                        Box {
+                          size 0.038 0.105 0.0325
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.0592885
+                      centerOfMass [
+                        -0.00666564 -0.0458382 -0.0134901
+                      ]
+                      inertiaMatrix [
+                        8.6855267e-05 2.1192085e-05 8.684545e-05
+                        -5.3020311e-06 -4.3636051e-07 -6.4855932e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0118 -0.0326 -0.0005
+                    children [
+                      Box {
+                        size 0.039 0.085 0.047
+                      }
+                    ]
+                  }
+                  Pose {
+                    translation 0.0115 -0.0926 0.0117
+                    rotation 0 1 0 1.5708
+                    children [
+                      Box {
+                        size 0.02 0.035 0.048
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.168377
+                centerOfMass [
+                  -0.000659787 -0.036239 0.000734065
+                ]
+                inertiaMatrix [
+                  0.00012202839 3.8088441e-05 0.0001134083
+                  2.0812626e-06 8.8143449e-07 1.8251448e-06
+                ]
+              }
+            }
+          }
+        ]
+        name "shoulderR"
+        boundingObject Pose {
+          translation 0.0052 -0.0088 -0.0005
+          rotation 0 0 -1 0
+          children [
+            Box {
+              size 0.0368 0.0348 0.048
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.025913
+          centerOfMass [
+            0.00139 0.01352 0.01024
+          ]
+          inertiaMatrix [
+            9.7758165e-06 1.0511104e-05 5.476798e-06
+            -1.6911839e-06 4.5174329e-07 3.3406955e-07
+          ]
+        }
+      }
+    }
+    DEF DHeadBackLED Pose {
+      translation -0.043 -0.01 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.7 0.7 0.7
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+    }
+    DEF DEyeBackLED Pose {
+      translation -0.043 -0.015 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.7 0.7 0.7
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+    }
+  ]
+  name "VoBiRo_Default"
+  model "Pororo"
+  description "Robot Pororo by Rico Agustiawan"
+  boundingObject Group {
+    children [
+      Pose {
+        translation -0.009 0.00045 -0.0358
+        rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+        children [
+          Box {
+            size 0.124 0.108 0.068
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.975599
+    centerOfMass [
+      -0.05 0 -0.08
+    ]
+    inertiaMatrix [
+      0.00310818 0.0063787776 0.0053316425
+      -0.00025460189 0.0020318174 0.00016417863
+    ]
+  }
+  controller "gait_default"
+}
+DEF VOBIRO_OFAT Robot {
+  translation 1.66062 2.71731 0.343155
+  rotation -0.1127614871220774 0.00351650378284354 0.9936158620025964 3.059464710212302
+  children [
+    GPS {
+    }
+    DEF OFAT_BODY_SLOT Group {
+    }
+    Pose {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        DEF OFAT_JERSEY_SLOT Slot {
+          type "robotis jersey"
+        }
+      ]
+    }
+    Pose {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        DEF OFAT_DBodyShape Pose {
+          translation 0.13584 -0.0403 -0.26313
+          children [
+            CadShape {
+              url [
+                "D:/webots/project_pororo/Body/Body.obj"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    LED {
+      translation -0.043 -0.00500339 -0.0100018
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            transparency 0.1
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+      name "BackLedGreen"
+      color [
+        0 1 0
+      ]
+    }
+    LED {
+      translation -0.043 0 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            transparency 0.1
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+      name "BackLedBlue"
+      color [
+        0 0 1
+      ]
+    }
+    LED {
+      translation -0.043 0.005 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 0.2
+            metalness 0
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+      name "BackLedRed"
+    }
+    Speaker {
+      translation 0.2 0 0
+      rotation -0.9831126183314349 0.12940166088097618 -0.12940166088097618 -1.5878
+      name "Speaker"
+    }
+    Accelerometer {
+      translation -0.01 0 -0.068
+      rotation 0 0 1 -1.5708
+      name "Accelerometer"
+      lookupTable [
+        -39.24 0 0
+        39.24 1024 0
+      ]
+    }
+    Gyro {
+      translation 0.01 0 -0.068
+      rotation 0 0 1 -3.1416
+      name "Gyro"
+      lookupTable [
+        -27.925 0 0
+        27.925 1024 0
+      ]
+    }
+    DEF OFAT_RECEIVER Receiver {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+    }
+    DEF OFAT_EMITTER Emitter {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+    }
+    DEF OFAT_SUPER_EMITTER Emitter {
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      name "super_emitter"
+      channel 2
+    }
+    DEF OFAT_DNeck HingeJoint {
+      jointParameters HingeJointParameters {
+        position 8.041682305969183e-09
+        axis 0 0 1
+        anchor 0 0 0.051
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "Neck"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -1.81
+          maxPosition 1.81
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "NeckS"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0 0.051
+        rotation 0.5774169405488718 0.5773169306224665 0.5773169306228901 2.094399993007518
+        children [
+          DEF OFAT_DNeckShape Pose {
+            translation -0.07201 -0.0144 0.058972
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Head/HeadAssembly.obj"
+                ]
+              }
+            ]
+          }
+          DEF OFAT_DHead HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.17355552339371044
+              axis -1 0 0
+              anchor 0 -0.0058 0.0004
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "Head"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -0.36
+                maxPosition 0.94
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "HeadS"
+              }
+            ]
+            endPoint Solid {
+              translation 0 -0.001925310829114132 -0.004137266118382615
+              rotation -1 0 0 0.17355552339370983
+              children [
+                DEF OFAT_HEAD_SLOT Pose {
+                  translation 0 0.022 -0.012
+                }
+                DEF OFAT_DHeadShape Group {
+                  children [
+                    Shape {
+                      appearance DEF OFAT_PUPIL_APPEARANCE PBRAppearance {
+                        baseColor 0.05 0.05 0.05
+                        transparency 1
+                        metalness 0
+                      }
+                      geometry IndexedFaceSet {
+                        coord DEF OFAT_DHeadCoord Coordinate {
+                          point [
+                            0.0392305 0.0221018 -0.0570645, -0.0392305 0.0221018 -0.0570645, 0.0405922 0.0152099 -0.0401748, -0.0405922 0.0152099 -0.0401748, 0.0411355 0.0081425 -0.0334363, -0.0411355 0.0081425 -0.0334363, 0.0416294 -0.0007687 -0.0273103, -0.0416294 -0.0007687 -0.0273103, 0.0424073 -0.0072215 -0.0176621, -0.0424073 -0.0072215 -0.0176621, 0.0433401 -0.0086732 -0.0060919, -0.0433401 -0.0086732 -0.0060919, 0.044197 -0.0061456 0.0045363, -0.044197 -0.0061456 0.0045363, 0.0449545 0.0006532 0.0139317, -0.0449545 0.0006532 0.0139317, 0.0452514 0.0108622 0.0176143, -0.0452514 0.0108622 0.0176143, 0.0452514 0.0212564 0.0176141, -0.0452514 0.0212564 0.0176141, 0.0449057 0.0300627 0.0137528, -0.0449057 0.0300627 0.0137528, 0.0442507 0.0353979 0.0052024, -0.0442507 0.0353979 0.0052024, 0.0433849 0.0381032 -0.0055372, -0.0433849 0.0381032 -0.0055372, 0.038476 0.0363362 -0.0664233, -0.038476 0.0363362 -0.0664233, 0.0116412 0.0265999 0.0366955, -0.0116412 0.0265999 0.0366955, 0.0152554 0.0218632 0.0363648, -0.0152554 0.0218632 0.0363648, 0.0201309 0.0187384 0.0349243, -0.0201309 0.0187384 0.0349243, 0.0255253 0.0177015 0.0325931, -0.0255253 0.0177015 0.0325931, 0.0306174 0.0189101 0.0297263, -0.0306174 0.0189101 0.0297263, 0.034632 0.0221804 0.0267603, -0.034632 0.0221804 0.0267603, 0.0369579 0.0270145 0.0241466, -0.0369579 0.0270145 0.0241466, 0.037241 0.0326763 0.0222832, -0.037241 0.0326763 0.0222832, 0.0354382 0.038304 0.0214537, -0.0354382 0.038304 0.0214537, 0.0318239 0.0430408 0.0217844, -0.0318239 0.0430408 0.0217844, 0.0269485 0.0461655 0.023225, -0.0269485 0.0461655 0.023225, 0.0215541 0.0472024 0.0255561, -0.0215541 0.0472024 0.0255561, 0.016462 0.0459938 0.0284229, -0.016462 0.0459938 0.0284229, 0.0124474 0.0427235 0.0313889, -0.0124474 0.0427235 0.0313889, 0.0101215 0.0378894 0.0340026, -0.0101215 0.0378894 0.0340026, 0.0098384 0.0322276 0.035866, -0.0098384 0.0322276 0.035866, 0.0174415 0.0294527 0.0329804, -0.0174415 0.0294527 0.0329804, 0.0192939 0.0270251 0.032811, -0.0192939 0.0270251 0.032811, 0.0217926 0.0254236 0.0320726, -0.0217926 0.0254236 0.0320726, 0.0245573 0.0248921 0.0308779, -0.0245573 0.0248921 0.0308779, 0.0271671 0.0255116 0.0294086, -0.0271671 0.0255116 0.0294086, 0.0292247 0.0271877 0.0278885, -0.0292247 0.0271877 0.0278885, 0.0304167 0.0296652 0.026549, -0.0304167 0.0296652 0.026549, 0.0305618 0.0325669 0.0255939, -0.0305618 0.0325669 0.0255939, 0.0296378 0.0354512 0.0251688, -0.0296378 0.0354512 0.0251688, 0.0277855 0.0378789 0.0253383, -0.0277855 0.0378789 0.0253383, 0.0252868 0.0394803 0.0260766, -0.0252868 0.0394803 0.0260766, 0.022522 0.0400118 0.0272713, -0.022522 0.0400118 0.0272713, 0.0199123 0.0393923 0.0287406, -0.0199123 0.0393923 0.0287406, 0.0178547 0.0377163 0.0302607, -0.0178547 0.0377163 0.0302607, 0.0166627 0.0352387 0.0316003, -0.0166627 0.0352387 0.0316003, 0.0165176 0.032337 0.0325553, -0.0165176 0.032337 0.0325553, 0.0235397 0.032452 0.0290746, -0.0235397 0.032452 0.0290746, 0.0195178 0.0464315 -0.0795508, -0.0195178 0.0464315 -0.0795508, 0.0225675 0.0325759 -0.07354, -0.0225675 0.0325759 -0.07354, 0.0195174 0.016289 -0.0574006, -0.0195174 0.016289 -0.0574006, 0.0186086 0.0055227 -0.0552789, -0.0186086 0.0055227 -0.0552789, 0.0184255 -0.0009917 -0.051584, -0.0184255 -0.0009917 -0.051584, 0.0186973 -0.0121609 -0.0394498, -0.0186973 -0.0121609 -0.0394498, 0.0207908 -0.0194756 -0.0266185, -0.0207908 -0.0194756 -0.0266185, 0.0185759 -0.0211818 -0.014516, -0.0185759 -0.0211818 -0.014516, 0.0186379 -0.0196935 -0.001655, -0.0186379 -0.0196935 -0.001655, 0.0187539 -0.0135358 0.0128219, -0.0187539 -0.0135358 0.0128219, 0.018584 -0.0050813 0.024037, -0.018584 -0.0050813 0.024037, 0.0164893 0.0066883 0.0349741, -0.0164893 0.0066883 0.0349741, 0.0165623 0.0155422 0.0362219, -0.0165623 0.0155422 0.0362219, 0.0170276 0.0499737 0.0249869, -0.0170276 0.0499737 0.0249869, 0.01726 0.0553882 0.0150497, -0.01726 0.0553882 0.0150497, 0.0120454 0.0605195 0.0046781, -0.0120454 0.0605195 0.0046781, 0.0181589 0.0602533 -0.0062721, -0.0181589 0.0602533 -0.0062721, 0.0195168 0.060201 -0.0189165, -0.0195168 0.060201 -0.0189165, 0.0195174 0.0540533 -0.0540891, -0.0195174 0.0540533 -0.0540891, 0 -0.0138808 -0.0402319, 0 -0.0213466 -0.0278119, 0 -0.0227678 -0.0144287, 0 -0.022019 -1.81e-05, 0 -0.0156556 0.0154359, 0 -0.0061624 0.0265574, 0 0.0074755 0.0378864, 0 0.0175306 0.0379284, 0 0.032467 0.0361502, 0 0.0381629 0.0344413, 0 0.045242 0.0309423, 0 0.0488546 0.0285779, 0 0.057406 0.0180599, 0 0.0609716 0.0107532, 0 0.060921 -0.0062633, 0 0.0608675 -0.0189168, 0 0.051912 -0.0393596, 0 0.0386829 -0.0524273, 0.0195171 0.0508041 -0.0384949, -0.0195171 0.0508041 -0.0384949, 0.0195173 0.0380376 -0.0514338, -0.0195173 0.0380376 -0.0514338, 0 0.0161334 -0.0593111, 0 0.004431 -0.0571641, 0 -0.0022158 -0.0534247, 0.0291343 0.0417313 -0.0729934, -0.0291343 0.0417313 -0.0729934, 0.0304317 0.0350942 -0.0702807, -0.0304317 0.0350942 -0.0702807, 0.0297588 0.0190742 -0.0580713, -0.0297588 0.0190742 -0.0580713, 0.031687 0.0160369 -0.0526305, -0.031687 0.0160369 -0.0526305, 0.0309837 0.0092284 -0.0486846, -0.0309837 0.0092284 -0.0486846, 0.030947 0.0028528 -0.0442747, -0.030947 0.0028528 -0.0442747, 0.0313671 -0.0070052 -0.0342981, -0.0313671 -0.0070052 -0.0342981, 0.0327293 -0.0142829 -0.0243646, -0.0327293 -0.0142829 -0.0243646, 0.0320906 -0.0174994 -0.0152496, -0.0320906 -0.0174994 -0.0152496, 0.0334606 -0.0171215 -0.0025047, -0.0334606 -0.0171215 -0.0025047, 0.0348758 -0.0119176 0.010511, -0.0348758 -0.0119176 0.010511, 0.0352073 -0.0039472 0.0212155, -0.0352073 -0.0039472 0.0212155, 0.0303691 0.0014046 0.0276174, -0.0303691 0.0014046 0.0276174, 0.0331355 0.0159014 0.0280857, -0.0331355 0.0159014 0.0280857, 0.033055 0.0441668 0.018925, -0.033055 0.0441668 0.018925, 0.0272452 0.0520301 0.0117203, -0.0272452 0.0520301 0.0117203, 0.0274988 0.054967 0.0026082, -0.0274988 0.054967 0.0026082, 0.0273044 0.0556295 -0.0065691, -0.0273044 0.0556295 -0.0065691, 0.0276693 0.0543365 -0.0244786, -0.0276693 0.0543365 -0.0244786, 0.0323266 0.0444186 -0.0491837, -0.0323266 0.0444186 -0.0491837, 0.0417486 0.0375142 -0.0258325, -0.0417486 0.0375142 -0.0258325, 0.0401123 0.0369252 -0.0461279, -0.0401123 0.0369252 -0.0461279, 0.0070464 0.0573781 0.01728, -0.0070464 0.0573781 0.01728, 0.0083894 0.0559858 0.019199, -0.0083894 0.0559858 0.019199, 0.008978 0.0540208 0.0218855, -0.008978 0.0540208 0.0218855, 0.0049843 0.051013 0.0258813, -0.0049843 0.051013 0.0258813, 0.0381348 0.039614 0.0149968, -0.0381348 0.039614 0.0149968, 0.0374798 0.0437726 0.0079673, -0.0374798 0.0437726 0.0079673, 0.0368872 0.0477009 -0.0022339, -0.0368872 0.0477009 -0.0022339, 0.0349777 0.0463099 -0.0278206, -0.0349777 0.0463099 -0.0278206, 0 0.0572104 -0.0285718, 0 0.0462024 -0.0462686, 0.0195172 0.0456088 -0.0455197, -0.0195172 0.0456088 -0.0455197, 0.0195174 0.0280225 -0.056562, -0.0195174 0.0280225 -0.056562, 0 0.0286387 -0.0571265, 0.0195169 0.0566908 -0.0283183, -0.0195169 0.0566908 -0.0283183
+                          ]
+                        }
+                        coordIndex [
+                          62, 92, 60, -1, 61, 93, 63, -1, 64, 92, 62, -1, 63, 93, 65, -1, 66, 92, 64, -1, 65, 93, 67, -1, 68, 92, 66, -1, 67, 93, 69, -1, 70, 92, 68, -1, 69, 93, 71, -1, 72, 92, 70, -1, 71, 93, 73, -1, 74, 92, 72, -1, 73, 93, 75, -1, 76, 92, 74, -1, 75, 93, 77, -1, 78, 92, 76, -1, 77, 93, 79, -1, 80, 92, 78, -1, 79, 93, 81, -1, 82, 92, 80, -1, 81, 93, 83, -1, 84, 92, 82, -1, 83, 93, 85, -1, 86, 92, 84, -1, 85, 93, 87, -1, 88, 92, 86, -1, 87, 93, 89, -1, 90, 92, 88, -1, 89, 93, 91, -1, 60, 92, 90, -1, 91, 93, 61, -1
+                        ]
+                        creaseAngle 0.52
+                      }
+                    }
+                    Pose {
+                      translation -0.072 -0.0132 0.0624
+                      children [
+                        DEF OFAT_DHeadCoord CadShape {
+                          url [
+                            "D:/webots/project_pororo/Head/camera.obj"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+                Camera {
+                  translation -1.39746e-07 0.0329072 0.0145
+                  rotation -0.4472180556614335 -0.44721705566130904 -0.7745920964069002 1.82348
+                  children [
+                    DEF OFAT_DCameraShape Shape {
+                      appearance DEF OFAT_DCameraAppearance PBRAppearance {
+                        transparency 1
+                        roughness 0.3
+                        metalness 0
+                      }
+                      geometry IndexedFaceSet {
+                        coord Coordinate {
+                          point [
+                            0.0016242 -0.0012902 0.0006454
+                            0.0009796 -0.0012902 -0.0018532
+                            0.0009796 0.0012902 -0.0018532
+                            0.0016242 0.0012902 0.0006454
+                            -0.0001212 -0.0030927 0.0010956
+                            -0.0007657 -0.0030927 -0.001403
+                            -0.001216 -0.0012902 -0.0031483
+                            -0.001216 0.0012901 -0.0031484
+                            -0.0007657 0.0030927 -0.001403
+                            -0.0001212 0.0030927 0.0010956
+                            0.0003291 -0.0012902 0.002841
+                            0.0003291 0.0012902 0.002841
+                          ]
+                        }
+                        coordIndex [
+                          0, 10, 4, -1, 1, 5, 6, -1, 2, 7, 8, -1, 3, 9, 11, -1, 9, 3, 2, -1, 9, 2, 8, -1, 10, 0, 3, -1, 10, 3, 11, -1, 7, 2, 1, -1, 7, 1, 6, -1, 0, 4, 5, -1, 0, 5, 1, -1, 0, 1, 2, -1, 0, 2, 3, -1
+                        ]
+                        creaseAngle 0.2
+                      }
+                    }
+                  ]
+                  name "Camera"
+                  fieldOfView 1.0123
+                  width 160
+                  height 120
+                  zoom Zoom {
+                  }
+                }
+                DEF OFAT_DEyeLED LED {
+                  rotation 1 0 0 0
+                  children [
+                    DEF OFAT_DEyeLEDShape Shape {
+                      appearance DEF OFAT_DEyeLEDAppearance PBRAppearance {
+                        baseColor 0.7 0.7 0.7
+                        transparency 1
+                        roughness 0.3
+                        metalness 0
+                        emissiveIntensity 6
+                      }
+                      geometry IndexedFaceSet {
+                        coord Coordinate {
+                          point [
+                            0.0116412 0.0265999 0.0366955, -0.0116412 0.0265999 0.0366955, 0.0152554 0.0218632 0.0363648, -0.0152554 0.0218632 0.0363648, 0.0201309 0.0187384 0.0349243, -0.0201309 0.0187384 0.0349243, 0.0255253 0.0177015 0.0325931, -0.0255253 0.0177015 0.0325931, 0.0306174 0.0189101 0.0297263, -0.0306174 0.0189101 0.0297263, 0.034632 0.0221804 0.0267603, -0.034632 0.0221804 0.0267603, 0.0369579 0.0270145 0.0241466, -0.0369579 0.0270145 0.0241466, 0.037241 0.0326763 0.0222832, -0.037241 0.0326763 0.0222832, 0.0354382 0.038304 0.0214537, -0.0354382 0.038304 0.0214537, 0.0318239 0.0430408 0.0217844, -0.0318239 0.0430408 0.0217844, 0.0269485 0.0461655 0.023225, -0.0269485 0.0461655 0.023225, 0.0215541 0.0472024 0.0255561, -0.0215541 0.0472024 0.0255561, 0.016462 0.0459938 0.0284229, -0.016462 0.0459938 0.0284229, 0.0124474 0.0427235 0.0313889, -0.0124474 0.0427235 0.0313889, 0.0101215 0.0378894 0.0340026, -0.0101215 0.0378894 0.0340026, 0.0098384 0.0322276 0.035866, -0.0098384 0.0322276 0.035866, 0.0174415 0.0294527 0.0329804, -0.0174415 0.0294527 0.0329804, 0.0192939 0.0270251 0.032811, -0.0192939 0.0270251 0.032811, 0.0217926 0.0254236 0.0320726, -0.0217926 0.0254236 0.0320726, 0.0245573 0.0248921 0.0308779, -0.0245573 0.0248921 0.0308779, 0.0271671 0.0255116 0.0294086, -0.0271671 0.0255116 0.0294086, 0.0292247 0.0271877 0.0278885, -0.0292247 0.0271877 0.0278885, 0.0304167 0.0296652 0.026549, -0.0304167 0.0296652 0.026549, 0.0305618 0.0325669 0.0255939, -0.0305618 0.0325669 0.0255939, 0.0296378 0.0354512 0.0251688, -0.0296378 0.0354512 0.0251688, 0.0277855 0.0378789 0.0253383, -0.0277855 0.0378789 0.0253383, 0.0252868 0.0394803 0.0260766, -0.0252868 0.0394803 0.0260766, 0.022522 0.0400118 0.0272713, -0.022522 0.0400118 0.0272713, 0.0199123 0.0393923 0.0287406, -0.0199123 0.0393923 0.0287406, 0.0178547 0.0377163 0.0302607, -0.0178547 0.0377163 0.0302607, 0.0166627 0.0352387 0.0316003, -0.0166627 0.0352387 0.0316003, 0.0165176 0.032337 0.0325553, -0.0165176 0.032337 0.0325553
+                          ]
+                        }
+                        coordIndex [
+                          0, 32, 62, -1, 63, 33, 1, -1, 0, 62, 30, -1, 31, 63, 1, -1, 0, 2, 34, -1, 35, 3, 1, -1, 0, 34, 32, -1, 33, 35, 1, -1, 2, 4, 36, -1, 37, 5, 3, -1, 2, 36, 34, -1, 35, 37, 3, -1, 6, 8, 40, -1, 41, 9, 7, -1, 6, 40, 38, -1, 39, 41, 7, -1, 8, 10, 42, -1, 43, 11, 9, -1, 8, 42, 40, -1, 41, 43, 9, -1, 10, 12, 44, -1, 45, 13, 11, -1, 10, 44, 42, -1, 43, 45, 11, -1, 14, 16, 48, -1, 49, 17, 15, -1, 14, 48, 46, -1, 47, 49, 15, -1, 16, 18, 50, -1, 51, 19, 17, -1, 16, 50, 48, -1, 49, 51, 17, -1, 18, 20, 52, -1, 53, 21, 19, -1, 18, 52, 50, -1, 51, 53, 19, -1, 22, 24, 56, -1, 57, 25, 23, -1, 22, 56, 54, -1, 55, 57, 23, -1, 24, 26, 58, -1, 59, 27, 25, -1, 24, 58, 56, -1, 57, 59, 25, -1, 26, 28, 60, -1, 61, 29, 27, -1, 26, 60, 58, -1, 59, 61, 27, -1, 28, 30, 62, -1, 63, 31, 29, -1, 28, 62, 60, -1, 61, 63, 29, -1, 4, 6, 38, -1, 39, 7, 5, -1, 4, 38, 36, -1, 37, 39, 5, -1, 12, 14, 46, -1, 47, 15, 13, -1, 12, 46, 44, -1, 45, 47, 13, -1, 20, 22, 54, -1, 55, 23, 21, -1, 20, 54, 52, -1, 53, 55, 21, -1
+                        ]
+                        creaseAngle 0.2
+                      }
+                    }
+                  ]
+                  name "EyeLed"
+                  color []
+                  gradual TRUE
+                }
+                DEF OFAT_DHeadLED LED {
+                  rotation 1 0 0 0
+                  children [
+                    DEF OFAT_DHeadLEDShape Shape {
+                      appearance DEF OFAT_DHeadLEDAppearance PBRAppearance {
+                        baseColor 0.7 0.7 0.7
+                        transparency 1
+                        roughness 0.3
+                        metalness 0
+                        emissiveIntensity 6
+                      }
+                      geometry IndexedFaceSet {
+                        coord Coordinate {
+                          point [
+                            0 0.0488546 0.0285779
+                            0 0.057406 0.0180599
+                            0.0070464 0.0573781 0.01728
+                            -0.0070464 0.0573781 0.01728
+                            0.0083894 0.0559858 0.019199
+                            -0.0083894 0.0559858 0.019199
+                            0.008978 0.0540208 0.0218855
+                            -0.008978 0.0540208 0.0218855
+                            0.0049843 0.051013 0.0258813
+                            -0.0049843 0.051013 0.0258813
+                          ]
+                        }
+                        coordIndex [
+                          0, 8, 1, -1, 9, 0, 1, -1, 1, 8, 6, -1, 7, 9, 1, -1, 1, 6, 4, -1, 5, 7, 1, -1, 1, 4, 2, -1, 3, 5, 1, -1
+                        ]
+                        creaseAngle 0.2
+                      }
+                    }
+                  ]
+                  name "HeadLed"
+                  color []
+                  gradual TRUE
+                }
+              ]
+              boundingObject Pose {
+                translation 0 0.013 -0.008
+                children [
+                  Box {
+                    size 0.093 0.063 0.056
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.35
+                centerOfMass [
+                  6.39198e-05 0.0185645 0.00766662
+                ]
+                inertiaMatrix [
+                  0.0001239683 0.00011783781 0.00011583601
+                  7.8494368e-07 -7.645979e-08 1.2199205e-05
+                ]
+              }
+            }
+          }
+        ]
+        name "neck"
+        boundingObject Pose {
+          translation 0 -0.0116 0.0002
+          children [
+            Box {
+              size 0.048 0.0385 0.027
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.0243577
+          centerOfMass [
+            -0.00071 0.00142 -0.01657
+          ]
+          inertiaMatrix [
+            5.1411124e-06 8.1915737e-06 1.1379812e-05
+            -5.7530255e-07 -2.4729049e-08 -1.9223094e-07
+          ]
+        }
+      }
+    }
+    DEF OFAT_DPelvYL HingeJoint {
+      jointParameters HingeJointParameters {
+        position 7.696816152873371e-06
+        axis 0 0 -1
+        anchor 0.00028 0.038 0
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "PelvYL"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -0.69
+          maxPosition 2.5
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "PelvYLS"
+        }
+      ]
+      endPoint Solid {
+        translation -0.009419999752522557 0.03803007991115857 -0.13899999999999416
+        rotation 0.5773597439245117 0.5773455154994322 0.5773455480283162 2.0944105130859487
+        children [
+          DEF OFAT_DPelvYLShape Pose {
+            translation 0.02591 0.00695 -0.00228
+            rotation 0 0 1 1.01503e-06
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Leg/HipL.obj"
+                ]
+              }
+            ]
+          }
+          DEF OFAT_DPelvL HingeJoint {
+            jointParameters HingeJointParameters {
+              position -0.006141151414327297
+              axis 0 0 -1
+              anchor 0.00012 -0.0055 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "PelvL"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -1
+                maxPosition 0.93
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "PelvLS"
+              }
+            ]
+            endPoint Solid {
+              translation -3.3773857656568056e-05 -8.406459981518885e-07 0
+              rotation 0 0 1 0.006141151414306284
+              children [
+                Pose {
+                  translation 0.02592 0.00695 -0.0023
+                  rotation 0 0 -1 0
+                  children [
+                    CadShape {
+                      url [
+                        "D:/webots/project_pororo/Leg/HipMotorL.obj"
+                      ]
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position 0.6312502041702681
+                    axis -1 0 0
+                    anchor 0 -0.0055 0.00603
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    RotationalMotor {
+                      name "LegUpperL"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -0.5
+                      maxPosition 1.68
+                      maxTorque 2.5
+                    }
+                    PositionSensor {
+                      name "LegUpperLS"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation -0.001079999999999995 0.0030757009074143787 0.0021887692146160638
+                    rotation -1 0 0 0.6312502041702678
+                    children [
+                      Pose {
+                        rotation 1 0 0 0
+                        children [
+                          DEF OFAT_DLegUpperLShape Group {
+                            children [
+                              Pose {
+                                translation 0.027 0.0033 -0.01031
+                                children [
+                                  CadShape {
+                                    url [
+                                      "D:/webots/project_pororo/Leg/FemurL.obj"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                          DEF OFAT_DLegLowerL HingeJoint {
+                            jointParameters HingeJointParameters {
+                              position -0.9292139981358657
+                              axis -1 0 0
+                              anchor 0 -0.10422 -0.00205
+                              dampingConstant 0.002
+                              staticFriction 0.025
+                            }
+                            device [
+                              RotationalMotor {
+                                name "LegLowerL"
+                                acceleration 55
+                                maxVelocity 12.26
+                                minPosition -2.250002645680517
+                                maxPosition 0.03
+                                maxTorque 2.5
+                              }
+                              PositionSensor {
+                                name "LegLowerLS"
+                              }
+                            ]
+                            endPoint Solid {
+                              translation 0 -0.0989470681146512 -0.012953902481794063
+                              rotation 1 0 0 0.9292139981358655
+                              children [
+                                DEF OFAT_DLegLowerLShape Pose {
+                                  translation 0.027 0.113 0.00251
+                                  children [
+                                    CadShape {
+                                      url [
+                                        "D:/webots/project_pororo/Leg/TibiaL.obj"
+                                      ]
+                                    }
+                                  ]
+                                }
+                                DEF OFAT_DAnkleL HingeJoint {
+                                  jointParameters HingeJointParameters {
+                                    position -0.5237384349570485
+                                    anchor 0 -0.0894 0.01078
+                                    dampingConstant 0.002
+                                    staticFriction 0.025
+                                  }
+                                  device [
+                                    RotationalMotor {
+                                      name "AnkleL"
+                                      acceleration 55
+                                      maxVelocity 12.26
+                                      minPosition -2.39
+                                      maxPosition 1.22
+                                      maxTorque 2.5
+                                    }
+                                    PositionSensor {
+                                      name "AnkleLS"
+                                    }
+                                  ]
+                                  endPoint Solid {
+                                    translation 0 -0.08488514819135168 -0.002197538793852231
+                                    rotation -1 0 0 0.5237384349570485
+                                    children [
+                                      DEF OFAT_DAnkleLShape Pose {
+                                        translation 0.027 0.192 0.000725
+                                        children [
+                                          CadShape {
+                                            url [
+                                              "D:/webots/project_pororo/Leg/AnkleL.obj"
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                      HingeJoint {
+                                        jointParameters HingeJointParameters {
+                                          position -0.013823119049115411
+                                          axis 0 0 1
+                                          anchor 0.0012 -0.0103 0
+                                          dampingConstant 0.002
+                                          staticFriction 0.025
+                                        }
+                                        device [
+                                          RotationalMotor {
+                                            name "FootL"
+                                            acceleration 55
+                                            maxVelocity 12.26
+                                            minPosition -1.02
+                                            maxPosition 0.6
+                                            maxTorque 2.5
+                                          }
+                                          PositionSensor {
+                                            name "FootLS"
+                                          }
+                                        ]
+                                        endPoint Solid {
+                                          translation 0.00014248823735988595 1.560317537803793e-05 0
+                                          rotation 0 0 -0.9999999999999999 0.01382311904911601
+                                          children [
+                                            Pose {
+                                              translation 0.027 0.192 0.000725
+                                              children [
+                                                DEF OFAT_LEFT_FOOT_SLOT Group {
+                                                }
+                                                DEF OFAT_DFootLShape Group {
+                                                  children [
+                                                    Pose {
+                                                      children [
+                                                        CadShape {
+                                                          url [
+                                                            "D:/webots/project_pororo/Leg/FootL.obj"
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                          boundingObject Group {
+                                            children [
+                                              Pose {
+                                                translation 0.006 -0.0429 0.0127
+                                                children [
+                                                  Box {
+                                                    size 0.07 0.005 0.14
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                          physics Physics {
+                                            density -1
+                                            mass 0.221488
+                                          }
+                                        }
+                                      }
+                                    ]
+                                    name "solid(1)"
+                                    boundingObject Group {
+                                      children [
+                                        Pose {
+                                          translation 0.00134 0.0042 -0.0072
+                                          children [
+                                            Box {
+                                              size 0.034 0.0515 0.079
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                    physics Physics {
+                                      density -1
+                                      mass 0.221488
+                                    }
+                                  }
+                                }
+                              ]
+                              boundingObject Group {
+                                children [
+                                  Pose {
+                                    translation 0.0013 -0.0419 0.01735
+                                    rotation 1 0 0 0
+                                    children [
+                                      Box {
+                                        size 0.048 0.115 0.041
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                              physics Physics {
+                                density -1
+                                mass 0.095376
+                                centerOfMass [
+                                  -0.000592469 -0.0539545 0.00654763
+                                ]
+                                inertiaMatrix [
+                                  9.3369608e-05 4.6295534e-05 0.00011351516
+                                  -9.3567395e-07 -2.3992085e-07 -1.2858493e-05
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Pose {
+                      translation 0.0013 -0.0573 -0.002
+                      rotation 1 0 0 0
+                      children [
+                        Box {
+                          size 0.048 0.116 0.0285
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.1357538
+                    }
+                  }
+                }
+              ]
+              name "solid(1)"
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0002 -0.02 -0.0102
+                    children [
+                      Box {
+                        size 0.034 0.0515 0.079
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.1357538
+              }
+            }
+          }
+        ]
+        name "pelvYL"
+        boundingObject Group {
+          children [
+            Pose {
+              translation 0 0.007 0.0097
+              children [
+                Box {
+                  size 0.0235 0.045 0.047
+                }
+              ]
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.1774664
+        }
+      }
+    }
+    DEF OFAT_DPelvYR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -8.204456640033865e-06
+        axis 0 0 -1
+        anchor 0.0003 -0.0369 0
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "PelvYR"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -2.42
+          maxPosition 0.66
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "PelvYRS"
+        }
+      ]
+      endPoint Solid {
+        translation -0.009579840244297241 -0.03687028110432433 -0.13899999999999266
+        rotation 0.5773231202822264 0.5773638669809995 0.5773638193481997 2.094421524501892
+        children [
+          DEF OFAT_DPelvYRShape Pose {
+            translation 0.01287 0.034 -0.04897
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Leg/HipR.obj"
+                ]
+              }
+            ]
+          }
+          DEF OFAT_DPelvR HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.004528426375427182
+              axis 0 0 -1
+              anchor -7e-05 -0.00595 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              PositionSensor {
+                name "PelvRS"
+              }
+              RotationalMotor {
+                name "PelvR"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -1.01
+                maxPosition 1.01
+                maxTorque 2.5
+              }
+            ]
+            endPoint Solid {
+              translation 2.4135712356601507e-05 -0.0006203716388793112 0.0006000000000000113
+              rotation 0 0 -1 0.004528426375422994
+              children [
+                Pose {
+                  translation 0.01287 0.0346 -0.0496
+                  rotation 0 0 -1 0
+                  children [
+                    DEF OFAT_DPelvRShape CadShape {
+                      url [
+                        "D:/webots/project_pororo/Leg/HipMotorR.obj"
+                      ]
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -0.6312510428183545
+                    anchor 0 -0.00528 0.0055
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    PositionSensor {
+                      name "LegUpperRS"
+                    }
+                    RotationalMotor {
+                      name "LegUpperR"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -1.77
+                      maxPosition 0.45
+                      maxTorque 2.5
+                    }
+                  ]
+                  endPoint Solid {
+                    translation -0.004900000000000125 0.0035411681842714773 0.002519833584377731
+                    rotation -1 0 0 0.6312510428183546
+                    children [
+                      Pose {
+                        translation 0.0061 0.0044 -0.00585
+                        rotation 1 0 0 0
+                        children [
+                          DEF OFAT_DLegUpperRShape Group {
+                            children [
+                              Pose {
+                                translation 0.0117 0.0266 -0.05205
+                                children [
+                                  CadShape {
+                                    url [
+                                      "D:/webots/project_pororo/Leg/FemurR.obj"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                          DEF OFAT_DLegLowerR HingeJoint {
+                            jointParameters HingeJointParameters {
+                              position 0.9292136602909685
+                              anchor 0 -0.1083 0.003
+                              dampingConstant 0.002
+                              staticFriction 0.025
+                            }
+                            device [
+                              RotationalMotor {
+                                name "LegLowerR"
+                                acceleration 55
+                                maxVelocity 12.26
+                                minPosition -0.02
+                                maxPosition 2.2500008467517643
+                                maxTorque 2.5
+                              }
+                              PositionSensor {
+                                name "LegLowerRS"
+                              }
+                            ]
+                            endPoint Solid {
+                              translation 0 -0.09643723070766723 -0.00885726379553408
+                              rotation 1 0 0 0.9292136602909684
+                              children [
+                                DEF OFAT_DLegLowerRShape Pose {
+                                  translation 0.0117 0.1373 -0.03845
+                                  children [
+                                    CadShape {
+                                      url [
+                                        "D:/webots/project_pororo/Leg/TibiaR.obj"
+                                      ]
+                                    }
+                                  ]
+                                }
+                                DEF OFAT_DAnkleR HingeJoint {
+                                  jointParameters HingeJointParameters {
+                                    position 0.5237385919247728
+                                    axis -1 0 0
+                                    anchor 0 -0.09265 0.01663
+                                    dampingConstant 0.002
+                                    staticFriction 0.025
+                                  }
+                                  device [
+                                    RotationalMotor {
+                                      name "AnkleR"
+                                      acceleration 55
+                                      maxVelocity 12.26
+                                      minPosition -1.24
+                                      maxPosition 1.88
+                                      maxTorque 2.5
+                                    }
+                                    PositionSensor {
+                                      name "AnkleRS"
+                                    }
+                                  ]
+                                  endPoint Solid {
+                                    translation -0.0012999999999999143 -0.08983163825427762 0.005613819306572319
+                                    rotation -1 0 0 0.5237385919247729
+                                    children [
+                                      DEF OFAT_DAnkleRShape Pose {
+                                        translation 0.013 0.222 -0.047
+                                        children [
+                                          CadShape {
+                                            url [
+                                              "D:/webots/project_pororo/Leg/AnkleR.obj"
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                      HingeJoint {
+                                        jointParameters HingeJointParameters {
+                                          position 0.013823181963599733
+                                          axis 0 0 1
+                                          anchor 0.0004 -0.008 0
+                                          dampingConstant 0.002
+                                          staticFriction 0.025
+                                        }
+                                        device [
+                                          RotationalMotor {
+                                            name "FootR"
+                                            acceleration 55
+                                            maxVelocity 12.26
+                                            minPosition -0.68
+                                            maxPosition 1.04
+                                            maxTorque 2.5
+                                          }
+                                          PositionSensor {
+                                            name "FootRS"
+                                          }
+                                        ]
+                                        endPoint Solid {
+                                          translation -0.00011054371849430442 -6.2934059657359515e-06 0
+                                          rotation 0 0 1 0.013823181963615368
+                                          children [
+                                            Pose {
+                                              translation 0.013 0.222 -0.047
+                                              children [
+                                                DEF OFAT_RIGHT_FOOT_SLOT Group {
+                                                }
+                                                DEF OFAT_DFootRShape Group {
+                                                  children [
+                                                    Pose {
+                                                      children [
+                                                        CadShape {
+                                                          url [
+                                                            "D:/webots/project_pororo/Leg/FootR.obj"
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                          boundingObject Group {
+                                            children [
+                                              Pose {
+                                                translation -0.0047 -0.0404 0.0119
+                                                children [
+                                                  Box {
+                                                    size 0.07 0.005 0.14
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                          physics Physics {
+                                            density -1
+                                            mass 0.221488
+                                          }
+                                        }
+                                      }
+                                    ]
+                                    name "solid(1)"
+                                    boundingObject Group {
+                                      children [
+                                        Pose {
+                                          translation 0.0005 0.0066 -0.0081
+                                          children [
+                                            Box {
+                                              size 0.034 0.0515 0.079
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                    physics Physics {
+                                      density -1
+                                      mass 0.221488
+                                    }
+                                  }
+                                }
+                              ]
+                              boundingObject Group {
+                                children [
+                                  Pose {
+                                    translation -0.0011 -0.0451 0.0232
+                                    rotation 1 0 0 0
+                                    children [
+                                      Box {
+                                        size 0.048 0.115 0.041
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                              physics Physics {
+                                density -1
+                                mass 0.095376
+                                centerOfMass [
+                                  0.000592469 -0.0539545 0.00654763
+                                ]
+                                inertiaMatrix [
+                                  9.3369608e-05 4.6295534e-05 0.00011351516
+                                  9.3567395e-07 2.3992085e-07 -1.2858493e-05
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Group {
+                      children [
+                        Pose {
+                          translation 0.005 -0.057 -0.0027
+                          rotation 1 0 0 0
+                          children [
+                            Box {
+                              size 0.048 0.116 0.0285
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.1357538
+                    }
+                  }
+                }
+              ]
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0006 -0.0199 -0.0108
+                    children [
+                      Box {
+                        size 0.034 0.0515 0.079
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.1357538
+              }
+            }
+          }
+        ]
+        name "pelvYR"
+        boundingObject Group {
+          children [
+            Pose {
+              translation 0 0.0066 0.0098
+              children [
+                Box {
+                  size 0.0235 0.045 0.047
+                }
+              ]
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.1774664
+        }
+      }
+    }
+    DEF OFAT_DShoulderL HingeJoint {
+      jointParameters HingeJointParameters {
+        position 0.7218681271755495
+        axis 0 1 0
+        anchor 0.0004 0 -0.0012
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "ShoulderL"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -3.14
+          maxPosition 2.85
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "ShoulderLS"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0011913148772248355 0.08559999999999225 -0.0007855568291822092
+        rotation 0.6735484475761715 0.6735484171301523 0.30440929445270853 2.550658128889704
+        children [
+          DEF OFAT_DShoulderLShape Pose {
+            translation -0.0375 -0.0185 0.0445
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Arm/ShoullderL.obj"
+                ]
+              }
+            ]
+          }
+          DEF OFAT_DArmUpperL HingeJoint {
+            jointParameters HingeJointParameters {
+              position 0.3071779483553609
+              axis 0 0 -1
+              anchor 0.00345 -0.01585 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "ArmUpperL"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -2.25
+                maxPosition 0.77
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "ArmUpperLS"
+              }
+            ]
+            endPoint Solid {
+              translation -0.006915316071253489 -0.0033822326480223708 0
+              rotation 0 0 0.9999999999999999 0.47822235774493677
+              children [
+                DEF OFAT_DArmUpperLShape Group {
+                  children [
+                    Pose {
+                      translation -0.0375 -0.0185 0.0445
+                      children [
+                        CadShape {
+                          url [
+                            "D:/webots/project_pororo/Arm/ArmTopL.obj"
+                          ]
+                        }
+                        CadShape {
+                          url [
+                            "D:/webots/project_pororo/Arm/ArmMiddleL.obj"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+                DEF OFAT_DArmLowerL HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -0.5160589072084253
+                    anchor 0 -0.12435 0.02165
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    RotationalMotor {
+                      name "ArmLowerL"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -1.18
+                      maxPosition 1.63
+                      maxTorque 2.5
+                    }
+                    PositionSensor {
+                      name "ArmLowerLS"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 -0.030640486019527555 -0.044909537179436756
+                    rotation -0.9999999999999982 5.965154883868365e-08 -1.1154502278466459e-08 2.0868585992534343
+                    children [
+                      DEF OFAT_LEFT_HAND_SLOT Group {
+                      }
+                      DEF OFAT_DArmLowerLShape Group {
+                        children [
+                          Pose {
+                            translation -0.0375 0.0842 -0.0815
+                            children [
+                              CadShape {
+                                url [
+                                  "D:/webots/project_pororo/Arm/ArmBotL.obj"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Pose {
+                      translation 0.0034 -0.0484 -0.1145
+                      children [
+                        Box {
+                          size 0.038 0.105 0.0325
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.0592885
+                      centerOfMass [
+                        0.003 -0.05 -0.0112
+                      ]
+                      inertiaMatrix [
+                        8.6855267e-05 2.1192085e-05 8.684545e-05
+                        5.3020311e-06 4.3636051e-07 -6.4855932e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0033 -0.047 -0.0005
+                    children [
+                      Box {
+                        size 0.039 0.085 0.047
+                      }
+                    ]
+                  }
+                  Pose {
+                    translation 0.0035 -0.1067 0.0117
+                    rotation 0 1 0 1.5708
+                    children [
+                      Box {
+                        size 0.02 0.035 0.048
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.168377
+                centerOfMass [
+                  0.000659787 -0.036239 0.000734065
+                ]
+                inertiaMatrix [
+                  0.00012202839 3.8088441e-05 0.0001134083
+                  -2.0812626e-06 -8.8143449e-07 1.8251448e-06
+                ]
+              }
+            }
+          }
+        ]
+        name "shoulderL"
+        boundingObject Pose {
+          translation -0.005 -0.0081 0
+          children [
+            Box {
+              size 0.0368 0.0348 0.048
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.025913
+          centerOfMass [
+            0.00139 -0.01352 0.01264
+          ]
+          inertiaMatrix [
+            9.7758165e-06 1.0511104e-05 5.476798e-06
+            1.6911839e-06 -4.5174329e-07 3.3406955e-07
+          ]
+        }
+      }
+    }
+    DEF OFAT_DShoulderR HingeJoint {
+      jointParameters HingeJointParameters {
+        position -0.8447392619173507
+        axis 0 -1 0
+        anchor 0.0003 0 -0.0018
+        dampingConstant 0.002
+        staticFriction 0.025
+      }
+      device [
+        RotationalMotor {
+          name "ShoulderR"
+          acceleration 55
+          maxVelocity 12.26
+          minPosition -3.14
+          maxPosition 3.14
+          maxTorque 2.5
+        }
+        PositionSensor {
+          name "ShoulderRS"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0016512153597903739 -0.08559999999999111 -0.0011620905962542371
+        rotation 0.682900334853886 0.6828983269385169 0.2594166681634481 2.634009732592177
+        children [
+          DEF OFAT_DShoulderRShape Pose {
+            translation -0.0442 -0.0191 0.0444
+            children [
+              CadShape {
+                url [
+                  "D:/webots/project_pororo/Arm/ShoullderR.obj"
+                ]
+              }
+            ]
+          }
+          DEF OFAT_DArmUpperR HingeJoint {
+            jointParameters HingeJointParameters {
+              position -0.3117856531822
+              axis 0 0 -1
+              anchor -0.0032 -0.0163 0
+              dampingConstant 0.002
+              staticFriction 0.025
+            }
+            device [
+              RotationalMotor {
+                name "ArmUpperR"
+                acceleration 55
+                maxVelocity 12.26
+                minPosition -0.68
+                maxPosition 2.3
+                maxTorque 2.5
+              }
+              PositionSensor {
+                name "ArmUpperRS"
+              }
+            ]
+            endPoint Solid {
+              translation -0.01268469117804009 -0.009690867435343444 0
+              rotation 0 0 -1 0.47361465291812277
+              children [
+                DEF OFAT_DArmUpperRShape Pose {
+                  translation -0.0294 -0.00435 0.0444
+                  children [
+                    CadShape {
+                      url [
+                        "D:/webots/project_pororo/Arm/ArmTopR.obj"
+                      ]
+                    }
+                    CadShape {
+                      url [
+                        "D:/webots/project_pororo/Arm/ArmMiddleR.obj"
+                      ]
+                    }
+                  ]
+                }
+                DEF OFAT_DArmLowerR HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position 0.5114512835770648
+                    axis -1 0 0
+                    anchor 0 -0.1101 0.0216
+                    dampingConstant 0.002
+                    staticFriction 0.025
+                  }
+                  device [
+                    RotationalMotor {
+                      name "ArmLowerR"
+                      acceleration 55
+                      maxVelocity 12.26
+                      minPosition -1.65
+                      maxPosition 1.16
+                      maxTorque 2.5
+                    }
+                    PositionSensor {
+                      name "ArmLowerRS"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0 -0.09426382916272683 -0.07788098156538287
+                    rotation -1 0 0 2.0822509584986904
+                    children [
+                      DEF OFAT_RIGHT_HAND_SLOT Group {
+                      }
+                      DEF OFAT_DArmLowerRShape Group {
+                        children [
+                          Pose {
+                            translation -0.0294 0.0169 -0.0298
+                            children [
+                              CadShape {
+                                url [
+                                  "D:/webots/project_pororo/Arm/ArmBotR.obj"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                    boundingObject Pose {
+                      translation 0.0116 -0.1157 -0.0626
+                      children [
+                        Box {
+                          size 0.038 0.105 0.0325
+                        }
+                      ]
+                    }
+                    physics Physics {
+                      density -1
+                      mass 0.0592885
+                      centerOfMass [
+                        -0.00666564 -0.0458382 -0.0134901
+                      ]
+                      inertiaMatrix [
+                        8.6855267e-05 2.1192085e-05 8.684545e-05
+                        -5.3020311e-06 -4.3636051e-07 -6.4855932e-06
+                      ]
+                    }
+                  }
+                }
+              ]
+              boundingObject Group {
+                children [
+                  Pose {
+                    translation 0.0118 -0.0326 -0.0005
+                    children [
+                      Box {
+                        size 0.039 0.085 0.047
+                      }
+                    ]
+                  }
+                  Pose {
+                    translation 0.0115 -0.0926 0.0117
+                    rotation 0 1 0 1.5708
+                    children [
+                      Box {
+                        size 0.02 0.035 0.048
+                      }
+                    ]
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 0.168377
+                centerOfMass [
+                  -0.000659787 -0.036239 0.000734065
+                ]
+                inertiaMatrix [
+                  0.00012202839 3.8088441e-05 0.0001134083
+                  2.0812626e-06 8.8143449e-07 1.8251448e-06
+                ]
+              }
+            }
+          }
+        ]
+        name "shoulderR"
+        boundingObject Pose {
+          translation 0.0052 -0.0088 -0.0005
+          rotation 0 0 -1 0
+          children [
+            Box {
+              size 0.0368 0.0348 0.048
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.025913
+          centerOfMass [
+            0.00139 0.01352 0.01024
+          ]
+          inertiaMatrix [
+            9.7758165e-06 1.0511104e-05 5.476798e-06
+            -1.6911839e-06 4.5174329e-07 3.3406955e-07
+          ]
+        }
+      }
+    }
+    DEF OFAT_DHeadBackLED Pose {
+      translation -0.043 -0.01 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.7 0.7 0.7
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+    }
+    DEF OFAT_DEyeBackLED Pose {
+      translation -0.043 -0.015 -0.01
+      rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.7 0.7 0.7
+            roughness 0.3
+            metalness 0
+            emissiveIntensity 6
+          }
+          geometry Box {
+            size 0.002 0.005 0.002
+          }
+        }
+      ]
+    }
+  ]
+  name "VoBiRo_OFAT"
+  model "Pororo"
+  description "Robot Pororo by Rico Agustiawan"
+  boundingObject Group {
+    children [
+      Pose {
+        translation -0.009 0.00045 -0.0358
+        rotation 0.577416935887098 0.5773169329539689 0.5773169329539689 2.0944
+        children [
+          Box {
+            size 0.124 0.108 0.068
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.975599
+    centerOfMass [
+      -0.05 0 -0.08
+    ]
+    inertiaMatrix [
+      0.00310818 0.0063787776 0.0053316425
+      -0.00025460189 0.0020318174 0.00016417863
+    ]
+  }
+  controller "gait_ofat"
+}
+Pose {
+  translation 1.07962 -2.25164 -0.000455711
+  rotation -0.5696078178383097 0.5811238141554717 0.5812418141177351 -2.106225307179586
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+      }
+      geometry Mesh {
+        url [
+          "C:/Users/ASUS/Documents/Part1.obj"
+        ]
+      }
+    }
+  ]
+  rotationStep 0.161799
+}
+Pose {
+  translation 1.07962 1.74836 -0.000455711
+  rotation -0.5696078178383097 0.5811238141554717 0.5812418141177351 -2.106225307179586
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+      }
+      geometry Mesh {
+        url [
+          "C:/Users/ASUS/Documents/Part1.obj"
+        ]
+      }
+    }
+  ]
+  rotationStep 0.161799
+}
+
+Robot { name "comparison_smoke_supervisor" controller "comparison_smoke_test" supervisor TRUE }

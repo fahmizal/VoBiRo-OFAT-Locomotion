@@ -1,0 +1,26 @@
+{
+  "window_s": 40,
+  "paper_hashes": {
+    "access.tex": "96a5b10762be2bb46ae8d0d06883343de55a89c48c9674ff39e6dfd5e38682ba",
+    "access.pdf": "8a4c1f0264ed5f709dee5d3e7d427812f94db38b14e591723c14fd3fbfc3b07c"
+  },
+  "DEFAULT": {
+    "source": "D:\\webots\\humanoid_R1\\controllers\\gait_default\\webots_DEFAULT_20261015_013434_run001.csv",
+    "source_sha256": "7a08403f24d03d71e6dd4f95bf553fed1931bcfadfd96f7d2389a70622dde95c",
+    "full_duration_s": 73.472,
+    "samples_40s": 1251,
+    "mean": 0.17639585772280575,
+    "std": 0.06442000927946215,
+    "max": 0.515452
+  },
+  "OFAT": {
+    "source": "D:\\webots\\humanoid_R1\\controllers\\gait_ofat\\webots_OFAT_20261015_013434_run001.csv",
+    "source_sha256": "fad95abcdf520c200f7d3c6b1235d1417675affd039e682930cdda62b7b97fff",
+    "full_duration_s": 73.472,
+    "samples_40s": 1251,
+    "mean": 0.1899177519628609,
+    "std": 0.07976070350896362,
+    "max": 0.488285
+  },
+  "OFAT_mean_change_percent": 7.665652932340339
+}

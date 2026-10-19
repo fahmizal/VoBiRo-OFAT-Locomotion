@@ -1,0 +1,40 @@
+{
+  "Flat_DEFAULT": {
+    "source": "D:\\webots\\humanoid_R1\\controllers\\gait_default\\webots_DEFAULT_20261015_013434_run001.csv",
+    "samples": 1251,
+    "last_time_s": 40.0,
+    "mean": 0.17639585772280575,
+    "std": 0.06442000927946215,
+    "min": 1.11123e-06,
+    "max": 0.515452
+  },
+  "Flat_OFAT": {
+    "source": "D:\\webots\\humanoid_R1\\controllers\\gait_ofat\\webots_OFAT_20261015_013434_run001.csv",
+    "samples": 1251,
+    "last_time_s": 40.0,
+    "mean": 0.1899177519628609,
+    "std": 0.07976070350896362,
+    "min": 9.05539e-07,
+    "max": 0.488285
+  },
+  "Flat_gain_percent": 7.665652932340339,
+  "Wavy_DEFAULT": {
+    "source": "D:\\webots\\humanoid_R1\\controllers\\gait_default\\webots_DEFAULT_20261015_004141_run001.csv",
+    "samples": 5001,
+    "last_time_s": 40.0,
+    "mean": 0.13950324077877244,
+    "std": 0.05368729280331692,
+    "min": 7.34641e-07,
+    "max": 0.388368
+  },
+  "Wavy_OFAT": {
+    "source": "D:\\webots\\humanoid_R1\\controllers\\gait_ofat\\webots_OFAT_20261015_004141_run001.csv",
+    "samples": 5001,
+    "last_time_s": 40.0,
+    "mean": 0.15263371042484322,
+    "std": 0.07354705594534806,
+    "min": 7.34641e-07,
+    "max": 0.602363
+  },
+  "Wavy_gain_percent": 9.412304382873371
+}

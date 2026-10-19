@@ -1,0 +1,10 @@
+Gait=DEFAULT
+Robot=VoBiRo_Default
+Period_ms=500
+Lateral_mm=18
+FootLift_mm=40
+DSR_percent=10
+ArmGain=1.5
+BasicTimeStep_ms=32
+TrialStart_s=2.848
+Fall_Status=legacy instantaneous acceleration flag, not verified toppling

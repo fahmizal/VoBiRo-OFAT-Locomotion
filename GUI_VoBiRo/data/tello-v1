@@ -1,0 +1,9 @@
+Tello v1
+X	X	3	SLIDER	X Axis	0	1.0	0.0
+Y	Y	3	SLIDER	Y Axis	0	1.0	0.0
+RZ	RZ	3	SLIDER	Z Rotation	0	1.0	0.0
+SLIDER	SLIDER	3	SLIDER	Slider	0	1.0	0.0
+HAT	HAT	2	HAT	cooliehat: Hat Switch	0	1.0	0.0
+BTN0	verify	1	BUTTON	Button 0	0	0.0	0.0
+BASE	BASE 2	1	BUTTON	Button 7	0	0.0	0.0
+BASE2	BASE	1	BUTTON	Button 6	0	0.0	0.0

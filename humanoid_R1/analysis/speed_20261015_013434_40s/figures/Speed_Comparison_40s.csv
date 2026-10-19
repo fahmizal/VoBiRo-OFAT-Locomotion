@@ -1,0 +1,3 @@
+Terrain,Gait,Samples,Duration_s,SampleInterval_s,MeanSpeed_m_s,StdSpeed_m_s,MinSpeed_m_s,MaxSpeed_m_s,SmoothingSamples
+Latest,DEFAULT,1251,40,0.032,0.176395857722806,0.0644200092794621,1.11123e-06,0.515452,50
+Latest,OFAT,1251,40,0.032,0.189917751962861,0.0797607035089637,9.05539e-07,0.488285,50

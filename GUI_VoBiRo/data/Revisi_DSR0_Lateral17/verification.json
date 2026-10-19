@@ -1,0 +1,31 @@
+{
+  "matlab_exit_code": 0,
+  "python_independent_metrics_match": true,
+  "raw_sources_unchanged": true,
+  "window_samples": 344,
+  "window_last_time_s": 10.976,
+  "initial_10mm_last_time_s": 9.312,
+  "revised_config": {
+    "period_ms": 600,
+    "lateral_mm": 17,
+    "foot_lift_mm": 45,
+    "dsr_percent": 0,
+    "arm_gain": 2
+  },
+  "operator_confirms_oval_and_no_falls": true,
+  "latex_compile_exit_code": 0,
+  "matlab_initial_export_exit_code": 0,
+  "pdf_page_count": 16,
+  "pdf_sha256": "30bf0e8d6d650d2b4cc0b2ac60384ad8adc22b543acae7bf43d0c39e2acc7187",
+  "paper_direct_edit": "D:\\Paper_IEEE Access_fmz VoBiRo v5\\access.tex",
+  "matlab_directory": "D:\\template elsevier_rev_fahmi\\Processing\\Versi2\\GuiVobiro2\\data\\Revisi_DSR0_Lateral17",
+  "pdf_visual_review": "Affected abstract, tables, graphs and result/conclusion pages inspected.",
+  "table_and_figure_numbering_verified": {
+    "tab:rmse_amplitude": 5,
+    "tab:rmse_dsr": 7,
+    "tab:param_compare": 9,
+    "tab:rmse_compare": 10,
+    "tab:taguchi_comparison": 11,
+    "fig:compare_analysis": 19
+  }
+}

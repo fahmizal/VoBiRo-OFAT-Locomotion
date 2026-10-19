@@ -1,0 +1,15 @@
+{
+  "window_rule": "Timestamp normalized to first row; retain all rows",
+  "default_samples": 5985,
+  "revised_samples": 5985,
+  "default_last_time_s": 47.872,
+  "revised_last_time_s": 47.872,
+  "default_median_dt_s": 0.0080000000000000071,
+  "revised_median_dt_s": 0.0080000000000000071,
+  "speed_smoothing_samples": 50,
+  "speed_smoothing_seconds_revised": 0.40000000000000036,
+  "physical_falls": "Not inferred from CSV",
+  "fall_source": "Threshold flags are not verified physical falls",
+  "revised_threshold_flags_full": 361,
+  "no_rows_removed": true
+}

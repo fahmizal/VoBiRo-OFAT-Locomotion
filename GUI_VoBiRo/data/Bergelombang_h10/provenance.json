@@ -1,0 +1,47 @@
+{
+  "source_csv": "D:\\ROBOT HUMANOID\\Simulasi\\humanoid_R1\\controllers\\pengujian\\DataBergelombang.csv",
+  "source_sha256": "f13505837076fdfdf237f77f345d6166ef5d0728d4f4918cd733af0b1443b2b9",
+  "source_rows": 13538,
+  "figure_engine": "MATLAB R2025a",
+  "source_style_scripts": [
+    "MatlabGenerateGrafik.m",
+    "lingkar.m",
+    "Reference_ArmSwing_Style.txt"
+  ],
+  "validation": "MATLAB statistics independently cross-checked with Python; source bytes unchanged",
+  "paper_pdf_sha256": "24a0fbdd681bdee2638562cf972faa0312f7c9d41fce3d82317ab83149d9cfa7",
+  "paper_placement": "Section IV.E, after IV.D Taguchi and before Section V",
+  "matlab_batch_exit_code": 0,
+  "latex_compile_exit_code": 0,
+  "paper_page_count": 17,
+  "visual_review": "MATLAB charts and revised h10 manuscript pages visually inspected.",
+  "h10_line_color_rgb": [
+    0,
+    0.447,
+    0.741
+  ],
+  "paper_h10_summary_table": false,
+  "compact_panel_titles": [
+    "Center of Mass (CoM) Roll - Lateral Sway",
+    "Center of Mass (CoM) Pitch - Sagittal Tilt"
+  ],
+  "compact_panel_labels": [
+    "(a)",
+    "(b)"
+  ],
+  "paper_figure_layout": "Native LaTeX subfigure pair with separate MATLAB-exported panels, labels from subcaption, concise caption",
+  "paper_panel_style": {
+    "figure_pixels": [
+      700,
+      350
+    ],
+    "title_pt": 12,
+    "label_tick_pt": 10,
+    "legend_pt": 9,
+    "line_width_pt": 1.5,
+    "grid_alpha": 0.3,
+    "legend_location": "best"
+  },
+  "h10_section_paragraph_count": 3,
+  "h10_terminology": "CoM Roll/Pitch follows earlier sections; explicitly defined as IMU-derived orientation angles"
+}

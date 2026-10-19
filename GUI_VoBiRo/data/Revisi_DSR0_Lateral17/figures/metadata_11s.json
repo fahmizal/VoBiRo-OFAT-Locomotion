@@ -1,0 +1,15 @@
+{
+  "window_rule": "Timestamp normalized to first row; retain t <= 11 s",
+  "default_samples": 344,
+  "revised_samples": 344,
+  "default_last_time_s": 10.976,
+  "revised_last_time_s": 10.976,
+  "default_median_dt_s": 0.032000000000000028,
+  "revised_median_dt_s": 0.032000000000000028,
+  "speed_smoothing_samples": 50,
+  "speed_smoothing_seconds_revised": 1.6000000000000014,
+  "revised_physical_falls": 0,
+  "fall_source": "Operator observation, not accelerometer threshold flags",
+  "revised_threshold_flags_11s": 6,
+  "no_rows_removed": true
+}

@@ -1,0 +1,60 @@
+% Additional h10 experiment, based on the full supplied record.
+\subsection{Additional Evaluation on Undulating Terrain}
+\label{subsec:undulating_h10}
+
+The OFAT-Optimized configuration obtained in the preceding stages was
+further evaluated on an undulating circular track (Fig.~\ref{fig:h10_setup}).
+The terrain height was 10\,mm from trough to crest (h10), with a sinusoidal
+amplitude of 5\,mm and a wavelength of 0.60\,m. A single native heightfield
+was simulated at an 8\,ms time step. Terrain-contact settings were friction
+1, restitution 0, soft CFM $10^{-5}$, and a maximum of 10 contact joints;
+these differ from the default-contact settings used for the flat-track trials.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{Figure/H10_Setup.png}
+  \caption{VoBiRo on the undulating circular track used for the additional
+  h10 evaluation. The black line provides the visual path reference.}
+  \label{fig:h10_setup}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{Figure/H10_Roll_Panel.pdf}
+    \subcaption{}
+    \label{fig:h10_roll}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{Figure/H10_Pitch_Panel.pdf}
+    \subcaption{}
+    \label{fig:h10_pitch}
+  \end{subfigure}
+  \caption{Kinematic responses on the h10 undulating track over the first
+  11\,s: (a) CoM Roll representing lateral sway and (b) CoM Pitch
+  representing sagittal tilt.}
+  \label{fig:h10_responses}
+\end{figure}
+
+Figure~\ref{fig:h10_responses} presents CoM Roll and CoM Pitch over the
+first 11\,s, using the same display window as the preceding comparisons.
+These terms follow the earlier sections and denote IMU-derived orientation
+angles. Full-record metrics were computed from all 13538 samples over
+108.296\,s, giving a mean GPS speed of 0.1756\,m/s and zero-reference
+CoM Roll and CoM Pitch RMSE values of 0.1699 and 0.1345\,rad, respectively.
+The mean pitch was $-0.1118$\,rad, so its RMSE includes a sustained posture
+offset as well as oscillation.
+
+No physical fall was observed during the recording. The logger's
+instantaneous acceleration-threshold flags were not treated as verified
+falls, and no samples were excluded. This trial extends the evaluation
+to the tested undulating-terrain and contact configuration. With only
+one h10 recording and no matched Default trial on the same terrain,
+the results do not establish comparative improvement or trial-to-trial
+robustness.
+
+\FloatBarrier
+
